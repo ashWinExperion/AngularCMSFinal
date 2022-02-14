@@ -1,0 +1,63 @@
+
+<!-- <h3 id='doctorHeader' class="">DOCTOR REGISTERATION</h3> -->
+<h3 id ='othersHeader' class="">OTHERS REGISTERATION</h3>
+<form>
+    <div class="row">
+        <div class="col">
+            <input type="text" name="fname" id='fname' onfocusout="checkName('fname')" class="form-control"
+                placeholder="First name">
+        </div>
+        <div class="col">
+            <input type="text" name=lname id='lname' onfocusout="checkName('lname')" class="form-control"
+                placeholder="Last name">
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 2%;">
+        <div class="col">
+            <input type="date" name="dob" id='docDOB' onfocusout="checkDOB('docDOB')" class="form-control"
+                placeholder="DOB">
+        </div>
+        <div class="col">
+            <input type="text" name="phone" id='phone' onfocusout="checkPhone('phone')" class="form-control"
+                placeholder="Phone">
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 2%;">
+        <div class="col">
+            <input type="text" name="city" class="form-control" placeholder="City">
+        </div>
+        <div class="col">
+            <input type="text" name="state" class="form-control" placeholder="State">
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 2%;">
+        <div class="col">
+            <!-- <select class="form-control" name="specialization" id='DoctorSpecialization'>
+                <option value="0">SPECIALIZATION</option>
+                <option value="1">Dermatologists</option>
+                <option value="2">Cardiologist</option>
+                <option value="3">Gynecologist</option>
+                <option value="4">Pediatricians</option>
+            </select> -->
+
+            <select class="form-control" name="role" id='StaffRoles'>
+                                    <option value="0">ROLE</option>
+                                    <option value="1">Receptionist</option>
+                                    <option value="2">Lab Technician</option>
+                                    <option value="3">Pharmacist</option>
+                                </select>
+        </div>
+        <div class="col">
+            <label style="margin-right:1%;">Gender </label>
+            <input type="radio" name="gender" class="" placeholder="First name">
+            <label>Male</label><i class="bi bi-gender-male"></i>
+            <input type="radio" name="gender" class="" placeholder="Last name">
+            <label>Female</label><i class="bi bi-gender-female"></i>
+        </div>
+    </div>
+    <button style="float: right;margin-top: 10%;" type="submit" class="btn btn-warning">Submit</button>
+
+</form>

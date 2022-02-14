@@ -1,0 +1,38 @@
+
+    <div class="card">
+        <div class="card-body">
+        
+            <div class="row">
+                <div class="col-6">
+                   
+                    <form name="empform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+    
+                    <pre class="card card-block card-header mb-3">Model: {{selectedValue | json}}</pre>
+                    <!-- <pre class="card card-block card-header mb-3">Selected option: {{selectedOption | json}}</pre> -->
+                    <div>
+
+                        <input name="medicineName" [(ngModel)]="selectedValue"
+                        placeholder="Search Medicine"
+                            [typeahead]="listMedicine"
+                            typeaheadOptionField="Name"
+                            (typeaheadOnSelect)="onSelect($event)"
+                            (typeaheadOnPreview)="onPreview($event)"
+                            class="form-control">
+                        <input placeholder="Doze" ngModel type="text" class="form-control mt-2" name="doze">
+                            <input type="text" [(ngModel)]="selectMedId" name="selectedMedId" class="d-none">
+                    </div>
+                    <button class="btn btn-sm btn-warning mt-2" style="float: right;" >add<i class="bi bi-node-plus-fill"></i></button>
+                </form>
+                </div>
+                <div class="col-6">
+                    <ul class="list-group list-group-flush" style="">
+                        <ng-container *ngFor="let item of medicineList">
+                            <li *ngIf="item.index!=0"  class="list-group-item" >{{item.name + "  -  " + item.doze }} <i class="bi bi-x-square-fill" style="color: brown;float: right;"></i> </li> 
+                        </ng-container> 
+                      </ul>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+

@@ -1,0 +1,12 @@
+<div class="sideBar">
+    <img class='logo'
+        src='../../../assets/pics/favpng_health-icon-logo-icon-healthy-lifestyle-logo-icon.png' />
+    <a  routerLink="{{item.Link}}" *ngFor="let item of sideBar">
+        <div> <span>{{item.Title}}</span> <i class="{{item.Icon}}"></i></div>
+    </a>
+
+    <a  (click)="this.generalService.logOut()">
+        <div> <span>LOG-OUT</span> <i class="bi bi-box-arrow-left"></i></div>
+    </a>
+      
+</div>
