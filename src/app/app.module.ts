@@ -31,7 +31,11 @@ import { AppointReceComponent } from './receptionist/receptionist-main-body/appo
 import { AddAppointComponent } from './receptionist/receptionist-main-body/add-appoint/add-appoint.component';
 import{DoctorService} from './shared/doctor.service';
 import{UsersService} from './shared/users.service';
-import { StaffListComponent } from './admin/staff-list/staff-list.component'
+import { StaffListComponent } from './admin/staff-list/staff-list.component';
+import { TestsComponent } from './doctor/doctor-main-body/tests/tests.component';
+import { TestService } from './shared/test.service';
+import { LabTechComponent } from './lab-tech/lab-tech.component';
+import { ListTestTodayComponent } from './lab-tech/list-test-today/list-test-today.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +55,10 @@ import { StaffListComponent } from './admin/staff-list/staff-list.component'
     ReceptionistMainBodyComponent,
     AppointReceComponent,
     AddAppointComponent,
-    StaffListComponent
+    StaffListComponent,
+    TestsComponent,
+    LabTechComponent,
+    ListTestTodayComponent
 
   ],
   imports: [
@@ -67,7 +74,7 @@ import { StaffListComponent } from './admin/staff-list/staff-list.component'
     NgxPaginationModule,
     Ng2SearchPipeModule
   ],
-  providers: [GeneralService,MedicineService,AppointmentService,DoctorService,UsersService],
+  providers: [GeneralService,MedicineService,AppointmentService,DoctorService,UsersService,TestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

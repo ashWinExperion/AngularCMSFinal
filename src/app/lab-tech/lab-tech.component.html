@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-2 col-left">
+           <app-side-nav-comman [sideBar]="sideBarContent" ></app-side-nav-comman>
+        </div>
+        <div class="col-10 col-right">
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+            <!-- Navigation Bar Start -->
+           <app-top-nav></app-top-nav>
+            <!-- Navigation Bar End -->
+            
+            <div class="box">
+
+                <router-outlet></router-outlet>
+                
+               
+            </div>
+  
+        </div>
+    </div>
+  </div>

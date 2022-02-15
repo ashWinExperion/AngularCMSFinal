@@ -70,6 +70,24 @@ export class LoginComponent implements OnInit {
             
             this.router.navigateByUrl('/receptionist');
           }
+          else if(this.loginUser.RoleId==4)
+          {
+            localStorage.setItem('USERNAME',this.loginUser.UserName);
+            localStorage.setItem('USERROLE',this.loginUser.RoleId);
+            sessionStorage.setItem('USERNAME',this.loginUser.UserName);
+            sessionStorage.setItem('JwtTOKEN',this.loginUser.Token);
+            
+            this.router.navigateByUrl('/pharmasist');
+          }
+          else if(this.loginUser.RoleId==5)
+          {
+            localStorage.setItem('USERNAME',this.loginUser.UserName);
+            localStorage.setItem('USERROLE',this.loginUser.RoleId);
+            sessionStorage.setItem('USERNAME',this.loginUser.UserName);
+            sessionStorage.setItem('JwtTOKEN',this.loginUser.Token);
+            
+            this.router.navigateByUrl('/lab-tech');
+          }
           else
           {
             alert("Make Sure Your Credentials Are Valid");

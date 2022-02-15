@@ -54,7 +54,7 @@ export class MedicineComponent implements OnInit {
   onSubmit(form){
 
     this.medicineList.push({index:this.medicineList.length,name:form.value.medicineName,doze:form.value.doze,medId:form.value.selectedMedId})
-    console.log(form);
+    console.log(this.medicineList);
   }
 
   onSelect(event: TypeaheadMatch): void {
