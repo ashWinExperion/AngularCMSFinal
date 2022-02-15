@@ -61,6 +61,15 @@ export class LoginComponent implements OnInit {
             
             this.router.navigateByUrl('/doctor');
           }
+          else if(this.loginUser.RoleId==3)
+          {
+            localStorage.setItem('USERNAME',this.loginUser.UserName);
+            localStorage.setItem('USERROLE',this.loginUser.RoleId);
+            sessionStorage.setItem('USERNAME',this.loginUser.UserName);
+            sessionStorage.setItem('JwtTOKEN',this.loginUser.Token);
+            
+            this.router.navigateByUrl('/receptionist');
+          }
           else
           {
             alert("Make Sure Your Credentials Are Valid");

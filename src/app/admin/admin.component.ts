@@ -9,7 +9,7 @@ import { GeneralService } from '../shared/general.service';
 export class AdminComponent implements OnInit {
 
   constructor(public generalService:GeneralService) { }
-  sideBarContent=[{Title:"STAFFS",Link:"",Icon:"bi bi-person-plus"},
+  sideBarContent=[{Title:"STAFFS",Link:"staff-list",Icon:"bi bi-person-plus"},
   {Title:"TEST | MEDICINE",Link:"",Icon:"bi bi-activity"},
   {Title:"TREATMENTS",Link:"",Icon:"bi bi-bandaid"}]
   ngOnInit(): void {

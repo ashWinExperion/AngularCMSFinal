@@ -1,0 +1,41 @@
+
+.picLayer{
+    height: 100%;
+    background-color: rgba(0, 140, 216, 0.253);
+
+}
+
+.rowBody{
+    height: 100%;
+  }
+
+
+.shapePic{
+    background-color:  rgb(30 41 51);
+    height: 100%;
+    clip-path: circle(90% at 5% 15%);
+    background-image: url("../../../../assets/pics/741810.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+   
+
+}
+
+.box{
+    padding: 0%;
+}
+
+.formSide{
+    padding-top: 20%;
+    padding-right: 5%;
+}
+
+@media only screen and (max-width: 1000px) {
+    .sidePicCol{
+        display: none;
+    }
+    .formSide
+    {
+        margin: 10%;
+    }
+}

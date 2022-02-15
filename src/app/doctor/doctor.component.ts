@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppointmentService } from '../shared/appointment.service';
 
 @Component({
   selector: 'app-doctor',
@@ -6,13 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./doctor.component.scss']
 })
 export class DoctorComponent implements OnInit {
-  constructor() { }
+  constructor(private appointmentService:AppointmentService) { }
 
   sideBarContent=[
-  {Title:"APPOINTMENT",Link:"",Icon:"bi bi-list-nested"},
+  {Title:"APPOINTMENT",Link:"/doctor/appointment",Icon:"bi bi-list-nested"},
   {Title:"PATIENTS",Link:"",Icon:"bi bi-people"},
   {Title:"REPORTS",Link:"",Icon:"bi bi-file-earmark-medical"}]
 
   ngOnInit(): void {
+   
   }
 }

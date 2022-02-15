@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,8 +22,16 @@ import {GeneralService} from './shared/general.service';
 import{ MedicineComponent } from './doctor/doctor-main-body/medicine/medicine.component'
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import{MedicineService} from './shared/medicine.service';
-import { ConsultingComponent } from './doctor/doctor-main-body/consulting/consulting.component'
-
+import { ConsultingComponent } from './doctor/doctor-main-body/consulting/consulting.component';
+import { AppointmentsDocComponent } from './doctor/doctor-main-body/appointments-doc/appointments-doc.component'
+import {AppointmentService} from './shared/appointment.service';
+import { ReceptionistComponent } from './receptionist/receptionist.component';
+import { ReceptionistMainBodyComponent } from './receptionist/receptionist-main-body/receptionist-main-body.component';
+import { AppointReceComponent } from './receptionist/receptionist-main-body/appoint-rece/appoint-rece.component';
+import { AddAppointComponent } from './receptionist/receptionist-main-body/add-appoint/add-appoint.component';
+import{DoctorService} from './shared/doctor.service';
+import{UsersService} from './shared/users.service';
+import { StaffListComponent } from './admin/staff-list/staff-list.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +45,13 @@ import { ConsultingComponent } from './doctor/doctor-main-body/consulting/consul
     DoctorMainBodyComponent,
     LoginComponent,
     MedicineComponent,
-    ConsultingComponent
+    ConsultingComponent,
+    AppointmentsDocComponent,
+    ReceptionistComponent,
+    ReceptionistMainBodyComponent,
+    AppointReceComponent,
+    AddAppointComponent,
+    StaffListComponent
 
   ],
   imports: [
@@ -48,9 +63,11 @@ import { ConsultingComponent } from './doctor/doctor-main-body/consulting/consul
     HttpClientModule,
     TooltipModule.forRoot(),
     TabsModule.forRoot(),
-    TypeaheadModule.forRoot()
+    TypeaheadModule.forRoot(),
+    NgxPaginationModule,
+    Ng2SearchPipeModule
   ],
-  providers: [GeneralService,MedicineService],
+  providers: [GeneralService,MedicineService,AppointmentService,DoctorService,UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
