@@ -16,7 +16,9 @@ export class AppointmentsDocComponent implements OnInit {
     private router:Router) { }
 
   ngOnInit(): void {
-    this.appointmentService.getAllApointmentsForAdoctor(6).subscribe(
+    let DoctorUserId=sessionStorage.getItem('USERID');
+    console.log("-->"+ DoctorUserId);
+    this.appointmentService.getAllApointmentsForAdoctor(DoctorUserId).subscribe(
       result=>{
         this.listAppointments=result;
         console.log(result);

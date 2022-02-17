@@ -1,6 +1,6 @@
 <div class="box card">
     <div class="row rowBody card-body">
-        <div class="col sidePicCol">
+        <div class="col-5 sidePicCol">
             <div class="shapePic"></div>
 
         </div>
@@ -8,47 +8,54 @@
             <div class="formSide">
                 <h3>APPOINTMENT</h3>
                 <div class="form">
-                    <form>
+                    <form #appointmentForm="ngForm" autocomplete="off" (ngSubmit)="onSubmit(appointmentForm)">
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Tokken No."></div>
+                                <input type="text"  [(ngModel)]="'Token No : ' + this.appointmentService.nextToken" disabled  name="token" class="form-control" placeholder="Tokken No."></div>
                                 <div class="col">
-                                    <select class="form-control">
-                                        <option>Select Patient</option>
-                                        <option>P012- Ashwin</option>
-                                        <option>P013- Lulbaiba</option>
-                                    </select>
+                                    <input name="PatientName" [(ngModel)]="selectedValue"
+                                    placeholder="Search Patinet"
+                                        [typeahead]="listOfPatients"
+                                        typeaheadOptionField="FirstName"
+                                        (typeaheadOnSelect)="onSelect($event)"
+                                        (typeaheadOnPreview)="onPreview($event)"
+                                        class="form-control">
+                                        <input type="text" [(ngModel)]="selectPatinetId" name="PatientId" class="d-none">
+                                        <input type="text" [(ngModel)]="receptionistIdLogedUser" name="ReceptionId" class="d-none">
+                                        <input type="text" [(ngModel)]="editAppointID.AppointmentId" name="AppointmentId"  class="d-none">
+                                        <input type="text" value="1"  ngModel name="status"  class="d-none">
+                                        <input type="text" class="d-none"  [(ngModel)]="this.appointmentService.nextToken"   name="TokenNumber"  placeholder="Tokken No.">
                                 </div>
                             </div>
                             <div class="row" style="margin-top: 5%;">
 
                                 <div class="col">
-                                    <input type="date" class="form-control" placeholder="Date"></div>
+                                    <input type="date" (change)="onDateChange($event)" ngModel name="Date" class="form-control" placeholder="Date"></div>
                                     <div class="col">
-                                        <input type="time" class="form-control" placeholder="Time"></div>
+                                        <input type="time" ngModel name="Time" class="form-control" placeholder="Time"></div>
                                     </div>
 
                                     <div class="row" style="margin-top: 5%;">
 
                                         <div class="col">
-                                            <select class="form-control">
-                                                <option>Pediatricians</option>
-                                                <option>Cardiologist</option>
-                                                <option>Dermatologists</option>
+                                            <select class="form-control"  (change)="onChange($event.target.value)">
+                                                <option value="0" selected>---Select Specialization---</option>
+                                                <option *ngFor="let item of listSpecialization" value={{item.SpecializationId}}>{{item.SpecializationName}}</option>
+                                                
                                             </select>
                                         </div>
                                         <div class="col">
-                                            <select class="form-control">
+                                            <select ngModel name="DoctorId" class="form-control">
                                                 <option>Select Doctor</option>
-                                                <option>Dr. Binu</option>
-                                                <option>Dr. Aravind</option>
+                                                <option *ngFor="let item of listDoctorsBasedOnSpecialisation" value={{item.doctorId}} >{{item.docFirstName + " " + item.docLastName}}</option>
+                                             
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="row" style="margin-top: 5%;">
                                         <div class="col-12">
-                                            <button style="margin-left: 45%;" type="button" class="btn btn-outline-warning">Submit</button>
+                                            <button style="margin-left: 45%;" class="btn btn-outline-warning">Submit</button>
                                         </div>
                                     </div>
 

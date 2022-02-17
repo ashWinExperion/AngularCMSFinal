@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('USERNAME',this.loginUser.UserName);
             localStorage.setItem('USERROLE',this.loginUser.RoleId);
             sessionStorage.setItem('USERNAME',this.loginUser.UserName);
+            sessionStorage.setItem('USERID',this.loginUser.UserId);
             sessionStorage.setItem('JwtTOKEN',this.loginUser.Token);
 
             this.router.navigateByUrl('/admin');
@@ -57,6 +58,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('USERNAME',this.loginUser.UserName);
             localStorage.setItem('USERROLE',this.loginUser.RoleId);
             sessionStorage.setItem('USERNAME',this.loginUser.UserName);
+            sessionStorage.setItem('USERID',this.loginUser.UserId);
             sessionStorage.setItem('JwtTOKEN',this.loginUser.Token);
             
             this.router.navigateByUrl('/doctor');
@@ -66,6 +68,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('USERNAME',this.loginUser.UserName);
             localStorage.setItem('USERROLE',this.loginUser.RoleId);
             sessionStorage.setItem('USERNAME',this.loginUser.UserName);
+            sessionStorage.setItem('USERID',this.loginUser.UserId);
             sessionStorage.setItem('JwtTOKEN',this.loginUser.Token);
             
             this.router.navigateByUrl('/receptionist');
@@ -75,15 +78,17 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('USERNAME',this.loginUser.UserName);
             localStorage.setItem('USERROLE',this.loginUser.RoleId);
             sessionStorage.setItem('USERNAME',this.loginUser.UserName);
+            sessionStorage.setItem('USERID',this.loginUser.UserId);
             sessionStorage.setItem('JwtTOKEN',this.loginUser.Token);
             
-            this.router.navigateByUrl('/pharmasist');
+            this.router.navigateByUrl('/pharmacist');
           }
           else if(this.loginUser.RoleId==5)
           {
             localStorage.setItem('USERNAME',this.loginUser.UserName);
             localStorage.setItem('USERROLE',this.loginUser.RoleId);
             sessionStorage.setItem('USERNAME',this.loginUser.UserName);
+            sessionStorage.setItem('USERID',this.loginUser.UserId);
             sessionStorage.setItem('JwtTOKEN',this.loginUser.Token);
             
             this.router.navigateByUrl('/lab-tech');

@@ -1,1 +1,48 @@
-<p>list-test-today works!</p>
+<div class="card">
+    <div class="card-body">
+        <h3>PATIENTS FOR THE DAY</h3>
+        <div> 
+            <input class="mb-2 form-control"   type="text" [(ngModel)]="filterterm" >
+        </div>
+        <div  class="alert alert-secondary" *ngFor="let item of listTestPrescription | filter:filterterm| paginate: { itemsPerPage: 4, currentPage: page }" role="alert">
+            <div class="row">
+                <div class="col-2">
+                    <span class="badge badge-dark">#Token :0{{item.Token}}</span>
+                </div>
+                <div class="col-3">
+                    <span class="badge badge-warning">#PT0{{item.PatientId}}</span>
+                    <span>{{item.FirstName}} {{item.LastName}}</span>
+                </div>
+                <div class="col-3">
+                    <span class="badge badge-warning">Dr.</span>
+                    <span>{{item.DocFirstName}} {{item.DocLastName}}</span>
+                </div>
+                <div class="col-4" style="padding-left: 15%;">
+             
+                        <a class="icons" (click)="openModal(template,item.AppointmentId)" > <i class="bi bi-eye-fill"></i></a>
+                        <a class="icons" (click)="openReport(item.AppointmentId)"  ><i class="bi bi-pencil-square text-success"></i></a>
+                        <a class="icons"><i class="bi bi-trash-fill text-danger"></i></a>    
+                </div>
+            </div>
+          </div>
+          <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div>
+
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Test List</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ul class="list-group">
+        <li class="list-group-item disabled"*ngFor="let item of testNameListInModal; let i = index">
+            <span *ngIf="i!=0"> {{item}}</span>
+        </li>
+    
+   </ul>
+  </div>
+</ng-template>

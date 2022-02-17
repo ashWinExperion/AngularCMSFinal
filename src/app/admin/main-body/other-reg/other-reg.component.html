@@ -2,54 +2,54 @@
 <!-- <h3 id='doctorHeader' class="">DOCTOR REGISTERATION</h3> -->
 <h3 id='othersHeader' class="">OTHERS REGISTERATION</h3>
 <form #docRegForm="ngForm" (ngSubmit)="onSubmit(docRegForm)">
+    <input [(ngModel)]="userEditObj.UserId" ngModel type="text" name="UserId" id='UserId' class="d-none"
+    placeholder="First name">
     <div class="row">
         <div class="col">
-            <input ngModel ngModel type="text" name="FirstName" id='fname' class="form-control"
+            <input [(ngModel)]="userEditObj.FirstName" ngModel type="text" name="FirstName" id='fname' class="form-control"
                 placeholder="First name">
         </div>
         <div class="col">
-            <input ngModel type="text" name=LastName id='lname' class="form-control" placeholder="Last name">
+            <input [(ngModel)]="userEditObj.LastName" type="text" name=LastName id='lname' class="form-control" placeholder="Last name">
         </div>
     </div>
 
     <div class="row" style="margin-top: 2%;">
         <div class="col">
-            <input ngModel type="date" name="UserDob" id='docDOB' class="form-control" placeholder="DOB">
+            <input [(ngModel)]="userEditObj.UserDob" type="date" name="UserDob" id='docDOB' class="form-control" placeholder="DOB">
         </div>
         <div class="col">
-            <input ngModel type="text" name="Phone" id='phone' class="form-control" placeholder="Phone">
+            <input [(ngModel)]="userEditObj.Phone" type="text" name="Phone" id='phone' class="form-control" placeholder="Phone">
         </div>
     </div>
 
     <div class="row" style="margin-top: 2%;">
         <div class="col" style="display: flex;">
-            <input ngModel type="text" name="City" class="form-control" placeholder="City">
-            <input ngModel type="text" name="State" class="form-control" placeholder="State">
+            <input [(ngModel)]="userEditObj.City" type="text" name="City" class="form-control" placeholder="City">
+            <input [(ngModel)]="userEditObj.State" type="text" name="State" class="form-control" placeholder="State">
         </div>
         <div class="col" style="display: flex;">
-            <input ngModel type="text" name="UserName" class="form-control" placeholder="Username">
-            <input ngModel type="text" name="Password" class="form-control" placeholder="Password">
+            <input [(ngModel)]="userEditObj.UserName" type="text" name="UserName" class="form-control" placeholder="Username">
+            <input [(ngModel)]="userEditObj.Password" type="text" name="Password" class="form-control" placeholder="Password">
         </div>
     </div>
 
     <div class="row" style="margin-top: 2%;">
         <div class="col">
 
-            <select ngModel class="form-control"  name="RoleId" id='StaffRoles'>
-                <option value="0">ROLE</option>
-                <option value="1">Receptionist</option>
-                <option value="2">Lab Technician</option>
-                <option value="3">Pharmacist</option>
+            <select [(ngModel)]="userEditObj.RoleId" class="form-control"  name="RoleId" id='StaffRoles'>
+                <option selected value="0">---Select ROLE---</option>
+                <option *ngFor="let item of listAllRoles" value={{item.RoleId}}>{{item.RoleName}}</option>          
             </select>
         </div>
         <div class="col" style="display: flex;">
             <label style="margin-right:1%;">Gender </label>
             <div style="padding-left: 5%;">
-                <input ngModel type="radio" name="Gender" value="0" class="" placeholder="First name">
+                <input ngModel type="radio" name="Gender" value="Male" [checked]="userEditObj.Gender == 'Male'"  class="" placeholder="First name">
                 <label>Male</label><i class="bi bi-gender-male"></i>
             </div>
             <div style="padding-left: 5%;">
-                <input ngModel type="radio" name="Gender" value="1" class="" placeholder="Last name">
+                <input ngModel type="radio" name="Gender" value="Female" [checked]="userEditObj.Gender == 'Female'" class="" placeholder="Last name">
                 <label>Female</label><i class="bi bi-gender-female"></i>
             </div>
         </div>

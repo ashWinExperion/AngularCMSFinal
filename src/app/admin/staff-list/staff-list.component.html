@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-body">
         <h3 class="headingMain">STAFF LIST</h3>
-        <button routerLink="/admin/staff-reg" class="btn btn-dark btn-sm float-right">
+        <button routerLink="/admin/staff-reg/0" class="btn btn-dark btn-sm float-right">
             <i  class="bi bi-node-plus-fill"></i>Add
         </button>
         <div> 
@@ -23,7 +23,7 @@
                 <div class="col-4" style="padding-left: 15%;">
              
                         <a class="icons" (click)="consult(item.appointmentId)" > <i class="bi bi-eye-fill"></i></a>
-                        <a class="icons" ><i class="bi bi-pencil-square text-success"></i></a>
+                        <a class="icons" (click)="onEdit(item.UserId)" ><i class="bi bi-pencil-square text-success"></i></a>
                         <a class="icons"><i class="bi bi-trash-fill text-danger"></i></a>    
                 </div>
             </div>

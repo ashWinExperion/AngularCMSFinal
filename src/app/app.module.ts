@@ -36,6 +36,20 @@ import { TestsComponent } from './doctor/doctor-main-body/tests/tests.component'
 import { TestService } from './shared/test.service';
 import { LabTechComponent } from './lab-tech/lab-tech.component';
 import { ListTestTodayComponent } from './lab-tech/list-test-today/list-test-today.component';
+import {LabtechService} from './shared/labtech.service';
+import { TestReportsComponent } from './lab-tech/test-reports/test-reports.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { PharmacistComponent } from './pharmacist/pharmacist.component';
+import { ListMedicineTodayComponent } from './pharmacist/list-medicine-today/list-medicine-today.component';
+import {PharmacistService} from './shared/pharmacist.service';
+import { TestAndMedicineComponent } from './admin/test-and-medicine/test-and-medicine.component';
+import { AdminTestsComponent } from './admin/test-and-medicine/admin-tests/admin-tests.component';
+import { AdminMedicineComponent } from './admin/test-and-medicine/admin-medicine/admin-medicine.component';
+import{PatientsService} from './shared/patients.service';
+import { GeneralNotesComponent } from './doctor/doctor-main-body/general-notes/general-notes.component'
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +72,15 @@ import { ListTestTodayComponent } from './lab-tech/list-test-today/list-test-tod
     StaffListComponent,
     TestsComponent,
     LabTechComponent,
-    ListTestTodayComponent
+    ListTestTodayComponent,
+    TestReportsComponent,
+    PharmacistComponent,
+    ListMedicineTodayComponent,
+    TestAndMedicineComponent,
+    AdminTestsComponent,
+    AdminMedicineComponent,
+    GeneralNotesComponent,
+
 
   ],
   imports: [
@@ -72,9 +94,12 @@ import { ListTestTodayComponent } from './lab-tech/list-test-today/list-test-tod
     TabsModule.forRoot(),
     TypeaheadModule.forRoot(),
     NgxPaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ModalModule.forRoot(),
+    AccordionModule.forRoot()
   ],
-  providers: [GeneralService,MedicineService,AppointmentService,DoctorService,UsersService,TestService],
+  providers: [GeneralService,MedicineService
+    ,AppointmentService,DoctorService,UsersService,TestService,LabtechService,PharmacistService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

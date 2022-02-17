@@ -1,0 +1,10 @@
+<div class="card">
+    <div class="card-body">
+        <h3>DOCTOR NOTES</h3>
+        <form #generlNotesForm="ngForm"  (ngSubmit)="onSubmit(generlNotesForm)" >
+            <input [(ngModel)]="appointmentId" class="d-none" name="AppointmentId" type="text">
+            <textarea ngModel  style="width: 100%;" name="Notes" id=""  rows="10"></textarea>
+            <button class="btn btn-sm btn-warning mt-2" style="float: right;" >add<i class="bi bi-node-plus-fill"></i></button>
+        </form>
+    </div>
+</div>

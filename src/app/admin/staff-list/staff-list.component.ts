@@ -11,10 +11,12 @@ export class StaffListComponent implements OnInit {
 
   listUsers;
   page=1;
-  role=["Admin","Doctor","Receptionist","Pharmacist","Lab-Tech"]
+  role=["","Admin","Doctor","Receptionist","Pharmacist","Lab-Tech"]
   filterterm="";
+  userEditObj;
   constructor(private usersService:UsersService,
     private router:Router) { }
+
 
   ngOnInit(): void {
     this.usersService.getAllUsers().subscribe(
@@ -23,6 +25,11 @@ export class StaffListComponent implements OnInit {
         console.log(result);
       }
     )
+  }
+
+  onEdit(id){
+
+    this.router.navigate(["admin/staff-reg",id])
   }
 
   consult(appId)
