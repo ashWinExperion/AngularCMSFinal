@@ -64,12 +64,11 @@ export class MedicineComponent implements OnInit {
 
   onSubmit(form){
 
-    let medNameSaveB4Delete=form.value['medicineName'];
-    delete form.value['medicineName'];
+  
     this.medicineService.addPrescribedMed(form.value,this.router.snapshot.params["appointmentId"]).subscribe(
       result=>{
         console.log(result);
-        this.medicineList.push({index:result,name:medNameSaveB4Delete,doze:form.value.Doze,medId:form.value.MedicineId})
+        this.medicineList.push({index:result,name:form.value['medicineName'],doze:form.value.Doze,medId:form.value.MedicineId})
       }
     )
     console.log(form.value);

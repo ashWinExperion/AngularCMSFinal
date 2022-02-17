@@ -12,4 +12,18 @@ export class TestService {
   getAllTests():Observable<any>{
     return this.httpClient.get("https://localhost:44379/api/tests/raw");
   }
+
+  addToTestReportList(form,id):Observable<any>
+  {
+
+    return this.httpClient.post("https://localhost:44379/api/TestReport/"+id,form);
+  }
+
+  removeTest(id):Observable<any>
+  {
+    return this.httpClient.delete("https://localhost:44379/api/TestReport/"+id);
+  }
+
+
 }
+

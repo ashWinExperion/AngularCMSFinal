@@ -17,5 +17,10 @@ export class LabtechService {
     return this.httpClient.get("https://localhost:44379/api/testreport/appointments/"+id);
 
   }
+
+  addToTestReport(objOfValToBeUpdated):Observable<any>{
+    console.log(objOfValToBeUpdated);
+    return this.httpClient.patch("https://localhost:44379/api/testreport",objOfValToBeUpdated)
+  }
 }
 

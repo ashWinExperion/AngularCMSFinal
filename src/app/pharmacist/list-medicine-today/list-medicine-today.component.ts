@@ -37,6 +37,12 @@ export class ListMedicineTodayComponent implements OnInit {
       this.router.navigate(["/doctor/consulting",appId]);
       alert(appId);
     }
+
+    onSubmit(form)
+    {
+      
+      console.log(form.value);
+    }
   
     openList(appointmentId)
     {

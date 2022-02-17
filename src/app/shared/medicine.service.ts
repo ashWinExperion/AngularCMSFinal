@@ -19,7 +19,7 @@ export class MedicineService {
   }
 
   removeMedFromList(id){
-  
     return this.httpClient.delete("https://localhost:44379/api/MedicineList/"+id);
   }
+  
 }

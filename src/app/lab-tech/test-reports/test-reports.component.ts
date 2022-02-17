@@ -15,6 +15,7 @@ export class TestReportsComponent implements OnInit {
   constructor(private labTechService:LabtechService,
     private route:ActivatedRoute) { }
 
+
     ngOnInit(): void {
      let  appointId=this.route.snapshot.params["Id"];
       this.labTechService.getReportDetailsByAppointId(appointId).subscribe(result=>{
@@ -22,6 +23,13 @@ export class TestReportsComponent implements OnInit {
         this.listReportDetails=result;
       
       })  
+    }
+
+    addTestReport(TestReportId,form){
+      alert(TestReportId);
+      console.log(form);
+      this.labTechService.addToTestReport({TestReportId:TestReportId,TestValue:form.value.testVal}).subscribe(result=>{
+      })
     }
 
 }
