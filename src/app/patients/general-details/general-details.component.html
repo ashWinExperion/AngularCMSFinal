@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card-body">
+
+            <alert type="info">
+                <strong>{{patientDetails.firstName}}{{patientDetails.lastName}} /</strong> 
+               <span class="ml-2"> Dr. {{patientDetails.docFirstName}} /</span>
+               <span class="ml-2"> {{patientDetails.time}} ({{patientDetails.date|date}})</span>
+               
+            </alert>
+            
+          
+
+          <accordion>
+            <accordion-group heading="General Notes">
+              {{patientDetails.generalNotes}}
+            </accordion-group>
+            <accordion-group heading="Medicines Prescribed">
+              <p *ngFor="let item of patientDetails.medName">{{item.medName}} * {{item.doze}}</p>
+            </accordion-group>
+          </accordion>
+    </div>
+</div>

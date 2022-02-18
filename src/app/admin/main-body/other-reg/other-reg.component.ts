@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { DoctorService } from 'src/app/shared/doctor.service';
 import { OtherStaffReg } from 'src/app/shared/other-staff-reg';
 import { UsersService } from 'src/app/shared/users.service';
@@ -13,7 +14,8 @@ import { UsersService } from 'src/app/shared/users.service';
 })
 export class OtherRegComponent implements OnInit {
 
-  constructor(private userService:UsersService,private router: ActivatedRoute) { }
+  constructor(private userService:UsersService,private router: ActivatedRoute,
+    private toastr:ToastrService ) { }
   editUserId;
   listAllRoles;
   userEditObj:OtherStaffReg=new OtherStaffReg();
@@ -57,12 +59,14 @@ export class OtherRegComponent implements OnInit {
     console.log(form.value);
     if (this.editUserId == 0) {
     this.userService.addUsers(form.value).subscribe(result=>{
+      this.toastr.success("Staff Registered...!!!","Success");
       console.log(result);
     })
   }
   else
   {
     this.userService.updUsers(form.value).subscribe(result=>{
+      this.toastr.success("Staff Updated ...!!!","Success");
       console.log(result);
     })
   }

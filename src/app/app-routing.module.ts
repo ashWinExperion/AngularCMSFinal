@@ -12,6 +12,10 @@ import { LabTechComponent } from './lab-tech/lab-tech.component';
 import { ListTestTodayComponent } from './lab-tech/list-test-today/list-test-today.component';
 import { TestReportsComponent } from './lab-tech/test-reports/test-reports.component';
 import { LoginComponent } from './login/login.component';
+import { DetailsComponent } from './patients/details/details.component';
+import { PatientsAllAppointmentsComponent } from './patients/patients-all-appointments/patients-all-appointments.component';
+import { PatientsListComponent } from './patients/patients-list/patients-list.component';
+import { PatientsComponent } from './patients/patients.component';
 import { ListMedicineTodayComponent } from './pharmacist/list-medicine-today/list-medicine-today.component';
 import { PharmacistComponent } from './pharmacist/pharmacist.component';
 import { AddAppointComponent } from './receptionist/receptionist-main-body/add-appoint/add-appoint.component';
@@ -45,7 +49,7 @@ children:[
 ]},
 
 
-//---------------------------RECEPIONIST--------------------------
+//---------------------------PHARMACIST--------------------------
 {path:"pharmacist",component:PharmacistComponent,
 children:[
   {path:"patients-for-today",component:ListMedicineTodayComponent},
@@ -57,6 +61,12 @@ children:[
   {path:"tests-for-today",component:ListTestTodayComponent},
   {path:"tests-report-list/:Id",component:TestReportsComponent},
 ]},
+
+//---------------------------PATIENTS------------------------------
+{path:"patients",component:PatientsComponent,
+children:[{path:"patients-list",component:PatientsListComponent},
+{path:"details/:Id",component:DetailsComponent},
+{path:"all-appointments/:Id",component:PatientsAllAppointmentsComponent}] }
 
 ];
 

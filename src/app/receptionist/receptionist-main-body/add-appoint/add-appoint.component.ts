@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
+import { ToastrService } from 'ngx-toastr';
 import { AppointmentService } from 'src/app/shared/appointment.service';
 import { DoctorService } from 'src/app/shared/doctor.service';
 import { PatientsService } from 'src/app/shared/patients.service';
@@ -23,7 +24,8 @@ export class AddAppointComponent implements OnInit {
 
   constructor(private doctorSrvice:DoctorService,
     public appointmentService:AppointmentService,
-    private patientsService :PatientsService) { }
+    private patientsService :PatientsService,
+    private toastr:ToastrService) { }
 
   
   onChange(id){
@@ -73,6 +75,7 @@ export class AddAppointComponent implements OnInit {
   onSubmit(form){
     delete form.value['PatientName']; 
     this.appointmentService.addApointments(form.value).subscribe(result=>{
+      this.toastr.success("Appointment Added...!!!","Success");
       console.log(result);
       
     });

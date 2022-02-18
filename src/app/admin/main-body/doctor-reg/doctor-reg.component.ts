@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { DoctorService } from 'src/app/shared/doctor.service';
 import { UsersService } from 'src/app/shared/users.service';
 
@@ -17,7 +18,8 @@ export class DoctorRegComponent implements OnInit {
   constructor(
     public doctorSrvice: DoctorService,
     private router: ActivatedRoute,
-    private userService: UsersService
+    private userService: UsersService,
+    private toastrService:ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -54,11 +56,13 @@ export class DoctorRegComponent implements OnInit {
     if (this.editUserId > 0) {
       console.log(form.value);
       this.doctorSrvice.updDoctor(form.value).subscribe((result) => {
+        this.toastrService.success("Doctor Updated...!!!","Success");
         console.log(result);
       });
       console.log(form);
     } else {
       this.doctorSrvice.addDoctor(form.value).subscribe((result) => {
+        this.toastrService.success("Doctor Registered...!!!","Success");
         console.log(result);
       });
       console.log(form);

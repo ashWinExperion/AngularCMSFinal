@@ -25,5 +25,9 @@ export class TestService {
   }
 
 
+  getAllTestReport(id):Observable<any>{
+    return this.httpClient.get("https://localhost:44379/api/testreport/appointments/"+id); 
+  }
+
 }
 

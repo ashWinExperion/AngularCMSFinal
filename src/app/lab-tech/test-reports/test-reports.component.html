@@ -6,10 +6,12 @@
               <form #form="ngForm" >
                   <div class="row">
                     <div class="col-2"><li class="badge badge-dark">{{item.testName}}</li></div> 
-                    <div class="col-3" style=""> <small>Normal Range</small> <small class="badge badge-warning"> {{item.testStartVal}} - {{item.testEndVal}} ({{item.unit}})</small></div>
-                    <div class="col-3">
-                        <input [(ngModel)]="item.testValueMeasured" name="testVal" placeholder="Measured Value" class="form-control form-control-sm" type="text">
-                    </div>
+                    <div class="col-3" style=""> <small>Normal Range</small> <small class="badge badge-secondary ml-1"> {{item.testStartVal}} - {{item.testEndVal}} ({{item.unit}})</small></div>
+                    <div class="col-3" style="display: flex;">
+                        <input #testValue [(ngModel)]="item.testValueMeasured" (change)="onTestValChange($event,item.testStartVal,item.testEndVal)" name="testVal" placeholder="Measured Value" class="form-control form-control-sm" type="text">
+                        <span class="badge badge-success ml-2" style="font-size:75%;height: fit-content;" [ngClass]="{'d-none': ((testValue.value < item.testStartVal)|| (testValue.value > item.testEndVal))}">Normal</span>
+                        <span class="badge badge-danger ml-2"  style="font-size:75%;height: fit-content;" [ngClass]="{'d-none': ((testValue.value >= item.testStartVal) && (testValue.value <= item.testEndVal))}">Risk</span>
+                      </div>
                     <div class="col-4">
                       <div style="float:right;">
                           <i (click)="addTestReport(item.testReportId,form)" class="bi bi-check-square mr-2"></i>

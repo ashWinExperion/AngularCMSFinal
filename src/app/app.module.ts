@@ -47,8 +47,15 @@ import { TestAndMedicineComponent } from './admin/test-and-medicine/test-and-med
 import { AdminTestsComponent } from './admin/test-and-medicine/admin-tests/admin-tests.component';
 import { AdminMedicineComponent } from './admin/test-and-medicine/admin-medicine/admin-medicine.component';
 import{PatientsService} from './shared/patients.service';
-import { GeneralNotesComponent } from './doctor/doctor-main-body/general-notes/general-notes.component'
-
+import { GeneralNotesComponent } from './doctor/doctor-main-body/general-notes/general-notes.component';
+import { PatientsComponent } from './patients/patients.component';
+import { PatientsListComponent } from './patients/patients-list/patients-list.component';
+import { ToastrModule } from 'ngx-toastr';
+import { PatientsAllAppointmentsComponent } from './patients/patients-all-appointments/patients-all-appointments.component';
+import { DetailsComponent } from './patients/details/details.component';
+import { GeneralDetailsComponent } from './patients/general-details/general-details.component';
+import { ReportDetailsComponent } from './patients/report-details/report-details.component';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 @NgModule({
   declarations: [
@@ -80,7 +87,12 @@ import { GeneralNotesComponent } from './doctor/doctor-main-body/general-notes/g
     AdminTestsComponent,
     AdminMedicineComponent,
     GeneralNotesComponent,
-
+    PatientsComponent,
+    PatientsListComponent,
+    PatientsAllAppointmentsComponent,
+    DetailsComponent,
+    GeneralDetailsComponent,
+    ReportDetailsComponent
 
   ],
   imports: [
@@ -96,7 +108,9 @@ import { GeneralNotesComponent } from './doctor/doctor-main-body/general-notes/g
     NgxPaginationModule,
     Ng2SearchPipeModule,
     ModalModule.forRoot(),
-    AccordionModule.forRoot()
+    AccordionModule.forRoot(),
+    ToastrModule.forRoot(),
+    AlertModule.forRoot()
   ],
   providers: [GeneralService,MedicineService
     ,AppointmentService,DoctorService,UsersService,TestService,LabtechService,PharmacistService],

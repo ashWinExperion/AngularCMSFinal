@@ -5,31 +5,44 @@ import { LabtechService } from 'src/app/shared/labtech.service';
 @Component({
   selector: 'app-test-reports',
   templateUrl: './test-reports.component.html',
-  styleUrls: ['./test-reports.component.scss']
+  styleUrls: ['./test-reports.component.scss'],
 })
 export class TestReportsComponent implements OnInit {
-
   listTestPrescription;
   listReportDetails;
-  page=1;
-  constructor(private labTechService:LabtechService,
-    private route:ActivatedRoute) { }
+  page = 1;
+  risk = false;
+  normal = false;
+  constructor(
+    private labTechService: LabtechService,
+    private route: ActivatedRoute
+  ) {}
 
-
-    ngOnInit(): void {
-     let  appointId=this.route.snapshot.params["Id"];
-      this.labTechService.getReportDetailsByAppointId(appointId).subscribe(result=>{
+  ngOnInit(): void {
+    let appointId = this.route.snapshot.params['Id'];
+    this.labTechService
+      .getReportDetailsByAppointId(appointId)
+      .subscribe((result) => {
         console.log(result);
-        this.listReportDetails=result;
-      
-      })  
-    }
+        this.listReportDetails = result;
+      });
+  }
 
-    addTestReport(TestReportId,form){
-      alert(TestReportId);
-      console.log(form);
-      this.labTechService.addToTestReport({TestReportId:TestReportId,TestValue:form.value.testVal}).subscribe(result=>{
+
+  onTestValChange(event, start, end) {
+    console.log(event.target.value);
+    console.log(start);
+    console.log(end);
+  }
+
+  addTestReport(TestReportId, form) {
+    alert(TestReportId);
+    console.log(form);
+    this.labTechService
+      .addToTestReport({
+        TestReportId: TestReportId,
+        TestValue: form.value.testVal,
       })
-    }
-
+      .subscribe((result) => {});
+  }
 }
