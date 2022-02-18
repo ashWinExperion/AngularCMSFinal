@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { AppointmentService } from '../shared/appointment.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AppointmentService } from '../shared/appointment.service';
 })
 export class ReceptionistComponent implements OnInit {
 
-  constructor(private appointmentService:AppointmentService) { }
+  constructor(private appointmentService:AppointmentService,private toasterServie:ToastrService) { }
 
   sideBarContent=[
   {Title:"PATIENTS",Link:"",Icon:"bi bi-person-plus"},
@@ -16,6 +17,6 @@ export class ReceptionistComponent implements OnInit {
   {Title:"BILL",Link:"",Icon:"bi bi-receipt-cutoff"}]
 
   ngOnInit(): void {
-   
+   this.toasterServie.success("Receptionist Loged In","Successfully...!!");
   }
 }

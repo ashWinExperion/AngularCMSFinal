@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { AppointmentService } from '../shared/appointment.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { AppointmentService } from '../shared/appointment.service';
   styleUrls: ['./doctor.component.scss']
 })
 export class DoctorComponent implements OnInit {
-  constructor(private appointmentService:AppointmentService) { }
+  constructor(private appointmentService:AppointmentService,private toasterServie:ToastrService) { }
 
   sideBarContent=[
   {Title:"APPOINTMENT",Link:"/doctor/appointment",Icon:"bi bi-list-nested"},
@@ -15,6 +16,6 @@ export class DoctorComponent implements OnInit {
   {Title:"REPORTS",Link:"",Icon:"bi bi-file-earmark-medical"}]
 
   ngOnInit(): void {
-   
+   this.toasterServie.success("Doctor Loged In","Successfully...!!!");
   }
 }

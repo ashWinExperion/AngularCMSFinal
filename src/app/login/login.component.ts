@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import {AuthService} from "../shared/auth.service";
 
 
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   loginUser: any;
   constructor(private formBuilder : FormBuilder,
      private router:Router,
-     private authService:AuthService) {}
+     private authService:AuthService,
+     private toasterServie:ToastrService) {}
 
   ngOnInit():void {
       this.loginForm=this.formBuilder.group({ 
@@ -48,6 +50,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('USERNAME',this.loginUser.UserName);
             localStorage.setItem('USERROLE',this.loginUser.RoleId);
             sessionStorage.setItem('USERNAME',this.loginUser.UserName);
+            sessionStorage.setItem('USERID',this.loginUser.UserId);
             sessionStorage.setItem('JwtTOKEN',this.loginUser.Token);
 
             this.router.navigateByUrl('/admin');
@@ -57,6 +60,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('USERNAME',this.loginUser.UserName);
             localStorage.setItem('USERROLE',this.loginUser.RoleId);
             sessionStorage.setItem('USERNAME',this.loginUser.UserName);
+            sessionStorage.setItem('USERID',this.loginUser.UserId);
             sessionStorage.setItem('JwtTOKEN',this.loginUser.Token);
             
             this.router.navigateByUrl('/doctor');
@@ -66,13 +70,34 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('USERNAME',this.loginUser.UserName);
             localStorage.setItem('USERROLE',this.loginUser.RoleId);
             sessionStorage.setItem('USERNAME',this.loginUser.UserName);
+            sessionStorage.setItem('USERID',this.loginUser.UserId);
             sessionStorage.setItem('JwtTOKEN',this.loginUser.Token);
             
             this.router.navigateByUrl('/receptionist');
           }
+          else if(this.loginUser.RoleId==4)
+          {
+            localStorage.setItem('USERNAME',this.loginUser.UserName);
+            localStorage.setItem('USERROLE',this.loginUser.RoleId);
+            sessionStorage.setItem('USERNAME',this.loginUser.UserName);
+            sessionStorage.setItem('USERID',this.loginUser.UserId);
+            sessionStorage.setItem('JwtTOKEN',this.loginUser.Token);
+            
+            this.router.navigateByUrl('/pharmacist');
+          }
+          else if(this.loginUser.RoleId==5)
+          {
+            localStorage.setItem('USERNAME',this.loginUser.UserName);
+            localStorage.setItem('USERROLE',this.loginUser.RoleId);
+            sessionStorage.setItem('USERNAME',this.loginUser.UserName);
+            sessionStorage.setItem('USERID',this.loginUser.UserId);
+            sessionStorage.setItem('JwtTOKEN',this.loginUser.Token);
+            
+            this.router.navigateByUrl('/lab-tech');
+          }
           else
           {
-            alert("Make Sure Your Credentials Are Valid");
+            this.toasterServie.error("Make Sure Your Credentials Are Valid","Unauthorised..!!!");
             
             this.router.navigateByUrl('/login');
           }

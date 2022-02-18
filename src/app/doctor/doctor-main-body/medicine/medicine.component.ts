@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 import { MedicineService } from 'src/app/shared/medicine.service';
 
@@ -41,7 +42,7 @@ export class MedicineComponent implements OnInit {
   selectedValue?: string;
   selectedOption: any;
   previewOption?: any;
-  constructor(private medicineService:MedicineService) { }
+  constructor(private medicineService:MedicineService,private router:ActivatedRoute) { }
 
   listMedicine;
   ngOnInit(): void {
@@ -51,10 +52,26 @@ export class MedicineComponent implements OnInit {
     })
   }
 
+  remove(i,id)
+  {
+    this.medicineList.splice(i,1);
+    alert(id);
+    this.medicineService.removeMedFromList(id).subscribe(result=>{
+
+    })
+    
+  }
+
   onSubmit(form){
 
-    this.medicineList.push({index:this.medicineList.length,name:form.value.medicineName,doze:form.value.doze,medId:form.value.selectedMedId})
-    console.log(form);
+  
+    this.medicineService.addPrescribedMed(form.value,this.router.snapshot.params["appointmentId"]).subscribe(
+      result=>{
+        console.log(result);
+        this.medicineList.push({index:result,name:form.value['medicineName'],doze:form.value.Doze,medId:form.value.MedicineId})
+      }
+    )
+    console.log(form.value);
   }
 
   onSelect(event: TypeaheadMatch): void {

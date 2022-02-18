@@ -1,0 +1,5 @@
+<alert type="info" *ngFor="let item of patientReport" >
+    <strong>Test Name :</strong> <span class="mr-3">{{item.testName}}</span> 
+     <strong class="ml-1" >Normal Range :</strong> <span class="mr-3">{{item.testStartVal}} - {{item.testEndVal}} ({{item.unit}})</span>
+<strong class="ml-1">Measured Value :</strong>    <span class="mr-4">{{item.testValueMeasured}}({{item.unit}})</span>
+</alert>

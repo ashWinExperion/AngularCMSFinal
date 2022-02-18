@@ -1,0 +1,60 @@
+<div class="card">
+    <div class="card-body">
+        <h3>PATIENTS FOR THE DAY</h3>
+        <div> 
+            <input class="mb-2 form-control"   type="text" [(ngModel)]="filterterm" >
+        </div>
+        <div  class="alert alert-secondary" *ngFor="let item of listMedicinePrescription | filter:filterterm| paginate: { itemsPerPage: 4, currentPage: page }" role="alert">
+            <div class="row">
+                <div class="col-2">
+                    <span class="badge badge-dark">#Token :0{{item.token}}</span>
+                </div>
+                <div class="col-3">
+                    <span class="badge badge-warning">#PT0{{item.patientId}}</span>
+                    <span>{{item.firstName}} {{item.lastName}}</span>
+                </div>
+                <div class="col-3">
+                    <span class="badge badge-warning">Dr.</span>
+                    <span>{{item.docFirstName}} {{item.docLastName}}</span>
+                </div>
+                <div class="col-4" style="padding-left: 15%;">
+             
+                        <a class="icons" (click)="openModal(template,item.appointmentId)" > <i class="bi bi-eye-fill"></i></a>
+                        <a class="icons" (click)="openList(item.AppointmentId)"  ><i class="bi bi-pencil-square text-success"></i></a>
+                        <a class="icons"><i class="bi bi-trash-fill text-danger"></i></a>    
+                </div>
+            </div>
+          </div>
+          <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div>
+
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Medicine List</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <form #medListForm="ngForm" (ngSubmit)="onSubmit(medListForm)">
+        <div class="card">
+            <div class="card-body">
+                
+                <div class="form-check" *ngFor="let item of medicineNameListInModal; let i = index">
+                    <input ngModel class="form-check-input" name={{item.medId}}  type="checkbox" value={{item.medId}} >
+                    <label class="form-check-label" for="flexCheckDefault">
+                      {{item.medName}}
+                    </label>
+                  </div>
+                  
+                  <button class="btn btn-sm btn-warning mt-3 float-right" >Submit</button>
+            </div>
+        </div>
+    </form>
+    
+
+  </div>
+</ng-template>

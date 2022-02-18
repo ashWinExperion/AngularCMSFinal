@@ -1,5 +1,6 @@
 export class OtherStaffReg {
    
+     UserId=0;
      City= "";
      FirstName="";
      Gender="";

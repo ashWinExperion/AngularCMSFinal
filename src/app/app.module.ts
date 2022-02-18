@@ -31,7 +31,32 @@ import { AppointReceComponent } from './receptionist/receptionist-main-body/appo
 import { AddAppointComponent } from './receptionist/receptionist-main-body/add-appoint/add-appoint.component';
 import{DoctorService} from './shared/doctor.service';
 import{UsersService} from './shared/users.service';
-import { StaffListComponent } from './admin/staff-list/staff-list.component'
+import { StaffListComponent } from './admin/staff-list/staff-list.component';
+import { TestsComponent } from './doctor/doctor-main-body/tests/tests.component';
+import { TestService } from './shared/test.service';
+import { LabTechComponent } from './lab-tech/lab-tech.component';
+import { ListTestTodayComponent } from './lab-tech/list-test-today/list-test-today.component';
+import {LabtechService} from './shared/labtech.service';
+import { TestReportsComponent } from './lab-tech/test-reports/test-reports.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { PharmacistComponent } from './pharmacist/pharmacist.component';
+import { ListMedicineTodayComponent } from './pharmacist/list-medicine-today/list-medicine-today.component';
+import {PharmacistService} from './shared/pharmacist.service';
+import { TestAndMedicineComponent } from './admin/test-and-medicine/test-and-medicine.component';
+import { AdminTestsComponent } from './admin/test-and-medicine/admin-tests/admin-tests.component';
+import { AdminMedicineComponent } from './admin/test-and-medicine/admin-medicine/admin-medicine.component';
+import{PatientsService} from './shared/patients.service';
+import { GeneralNotesComponent } from './doctor/doctor-main-body/general-notes/general-notes.component';
+import { PatientsComponent } from './patients/patients.component';
+import { PatientsListComponent } from './patients/patients-list/patients-list.component';
+import { ToastrModule } from 'ngx-toastr';
+import { PatientsAllAppointmentsComponent } from './patients/patients-all-appointments/patients-all-appointments.component';
+import { DetailsComponent } from './patients/details/details.component';
+import { GeneralDetailsComponent } from './patients/general-details/general-details.component';
+import { ReportDetailsComponent } from './patients/report-details/report-details.component';
+import { AlertModule } from 'ngx-bootstrap/alert';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +76,23 @@ import { StaffListComponent } from './admin/staff-list/staff-list.component'
     ReceptionistMainBodyComponent,
     AppointReceComponent,
     AddAppointComponent,
-    StaffListComponent
+    StaffListComponent,
+    TestsComponent,
+    LabTechComponent,
+    ListTestTodayComponent,
+    TestReportsComponent,
+    PharmacistComponent,
+    ListMedicineTodayComponent,
+    TestAndMedicineComponent,
+    AdminTestsComponent,
+    AdminMedicineComponent,
+    GeneralNotesComponent,
+    PatientsComponent,
+    PatientsListComponent,
+    PatientsAllAppointmentsComponent,
+    DetailsComponent,
+    GeneralDetailsComponent,
+    ReportDetailsComponent
 
   ],
   imports: [
@@ -65,9 +106,14 @@ import { StaffListComponent } from './admin/staff-list/staff-list.component'
     TabsModule.forRoot(),
     TypeaheadModule.forRoot(),
     NgxPaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ModalModule.forRoot(),
+    AccordionModule.forRoot(),
+    ToastrModule.forRoot(),
+    AlertModule.forRoot()
   ],
-  providers: [GeneralService,MedicineService,AppointmentService,DoctorService,UsersService],
+  providers: [GeneralService,MedicineService
+    ,AppointmentService,DoctorService,UsersService,TestService,LabtechService,PharmacistService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

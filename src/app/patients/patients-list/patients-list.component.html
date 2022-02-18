@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card-body">
+        <h3>PATIENTS FOR THE DAY</h3>
+        <div>
+            <input class="mb-2 form-control" type="text" [(ngModel)]="filterterm">
+        </div>
+        <div class="alert alert-secondary"
+            *ngFor="let item of listPatients | filter:filterterm| paginate: { itemsPerPage: 4, currentPage: page }"
+            role="alert">
+            <div class="row">
+                <div class="col-2">
+                    <span class="badge badge-dark">#PT0{{item.PatientId}}</span>
+                </div>
+                <div class="col-3">
+                    <span class="badge badge-secondary"><i class="bi bi-droplet"></i> :{{item.BloodGroup}}</span>
+                    <span class="ml-1">{{item.FirstName}} {{item.LastName}}</span>
+                </div>
+                <div class="col-3">
+                    <span class="badge badge-secondary"><i class="bi bi-telephone"></i> : </span>
+                    <span class="ml-1">{{item.PhoneNumber}}</span>
+                </div>
+                <div class="col-4" style="padding-left: 15%;">
+
+                    <a class="icons" (click)="consult(item.PatientId)"> <i
+                            class="bi bi-eye-fill"></i></a>
+                    <a class="icons" ><i
+                            class="bi bi-pencil-square text-success"></i></a>
+                    <a class="icons"><i class="bi bi-trash-fill text-danger"></i></a>
+                </div>
+            </div>
+        </div>
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div>
+
+
