@@ -1,15 +1,14 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { LabtechService } from 'src/app/shared/labtech.service';
 import { PatientsService } from 'src/app/shared/patients.service';
 
 @Component({
-  selector: 'app-patients-list',
-  templateUrl: './patients-list.component.html',
-  styleUrls: ['./patients-list.component.scss']
+  selector: 'app-patients-appoint',
+  templateUrl: './patients-appoint.component.html',
+  styleUrls: ['./patients-appoint.component.scss']
 })
-export class PatientsListComponent implements OnInit {
+export class PatientsAppointComponent implements OnInit {
 
   listPatients;
   page=1;
@@ -35,7 +34,7 @@ export class PatientsListComponent implements OnInit {
 
   consult(appId)
   {
-    this.router.navigate(["/doctor/all-appointments",appId]);
+    this.router.navigate(["/",appId]);
     alert(appId);
   }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 import { ToastrService } from 'ngx-toastr';
 import { AppointmentService } from 'src/app/shared/appointment.service';
@@ -25,6 +26,7 @@ export class AddAppointComponent implements OnInit {
   constructor(private doctorSrvice:DoctorService,
     public appointmentService:AppointmentService,
     private patientsService :PatientsService,
+    private route:Router,
     private toastr:ToastrService) { }
 
   
@@ -76,6 +78,7 @@ export class AddAppointComponent implements OnInit {
     delete form.value['PatientName']; 
     this.appointmentService.addApointments(form.value).subscribe(result=>{
       this.toastr.success("Appointment Added...!!!","Success");
+      this.route.navigate(["/receptionist/appointment"]);
       console.log(result);
       
     });

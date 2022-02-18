@@ -15,7 +15,8 @@ export class GeneralDetailsComponent implements OnInit {
 
   ngOnInit(): void {
  
-    this.medicineService.getAllMedPrescribed(this.router.snapshot.params["Id"]).subscribe(result=>{
+    let appId=this.router.snapshot.params["Id"];
+    this.medicineService.getAllMedPrescribed(appId).subscribe(result=>{
       this.patientDetails=result;
       console.log(result);
     })

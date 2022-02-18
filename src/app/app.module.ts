@@ -56,6 +56,8 @@ import { DetailsComponent } from './patients/details/details.component';
 import { GeneralDetailsComponent } from './patients/general-details/general-details.component';
 import { ReportDetailsComponent } from './patients/report-details/report-details.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import {NgxPrintModule} from 'ngx-print';
+import { PatientsAppointComponent } from './receptionist/patients-appoint/patients-appoint.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +94,8 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     PatientsAllAppointmentsComponent,
     DetailsComponent,
     GeneralDetailsComponent,
-    ReportDetailsComponent
+    ReportDetailsComponent,
+    PatientsAppointComponent
 
   ],
   imports: [
@@ -110,7 +113,8 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     ModalModule.forRoot(),
     AccordionModule.forRoot(),
     ToastrModule.forRoot(),
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    NgxPrintModule
   ],
   providers: [GeneralService,MedicineService
     ,AppointmentService,DoctorService,UsersService,TestService,LabtechService,PharmacistService],

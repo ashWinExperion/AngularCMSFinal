@@ -12,7 +12,7 @@ export class DoctorComponent implements OnInit {
 
   sideBarContent=[
   {Title:"APPOINTMENT",Link:"/doctor/appointment",Icon:"bi bi-list-nested"},
-  {Title:"PATIENTS",Link:"",Icon:"bi bi-people"},
+  {Title:"PATIENTS",Link:"/doctor/patients-list",Icon:"bi bi-people"},
   {Title:"REPORTS",Link:"",Icon:"bi bi-file-earmark-medical"}]
 
   ngOnInit(): void {

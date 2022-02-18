@@ -12,7 +12,7 @@ export class ReceptionistComponent implements OnInit {
   constructor(private appointmentService:AppointmentService,private toasterServie:ToastrService) { }
 
   sideBarContent=[
-  {Title:"PATIENTS",Link:"",Icon:"bi bi-person-plus"},
+  {Title:"PATIENTS",Link:"/receptionist/patients-list",Icon:"bi bi-person-plus"},
   {Title:"APPOINTMENT",Link:"/receptionist/appointment",Icon:"bi bi-calendar-check-fill"},
   {Title:"BILL",Link:"",Icon:"bi bi-receipt-cutoff"}]
 
