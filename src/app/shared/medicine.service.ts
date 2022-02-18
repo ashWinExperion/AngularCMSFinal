@@ -24,6 +24,7 @@ export class MedicineService {
 
 
   getAllMedPrescribed(id){
+    alert(id);
     return this.httpClient.get("https://localhost:44379/api/medicineprescription/appointments/"+id);
   }
   

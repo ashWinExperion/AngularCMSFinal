@@ -11,7 +11,7 @@ export class LabTechComponent implements OnInit {
 
   constructor(public generalService:GeneralService,private toasterServie:ToastrService) { }
   
-  sideBarContent=[{Title:"PATIENTS",Link:"staff-list",Icon:"bi bi-view-list"},
+  sideBarContent=[{Title:"PATIENTS",Link:"tests-for-today",Icon:"bi bi-view-list"},
   {Title:"REPORTS",Link:"",Icon:"bi bi-file-earmark-minus"},
   {Title:"TESTS",Link:"",Icon:"bi bi-check2-square"}]
   ngOnInit(): void {

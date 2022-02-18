@@ -18,6 +18,7 @@ import { PatientsListComponent } from './patients/patients-list/patients-list.co
 import { PatientsComponent } from './patients/patients.component';
 import { ListMedicineTodayComponent } from './pharmacist/list-medicine-today/list-medicine-today.component';
 import { PharmacistComponent } from './pharmacist/pharmacist.component';
+import { PatientsAppointComponent } from './receptionist/patients-appoint/patients-appoint.component';
 import { AddAppointComponent } from './receptionist/receptionist-main-body/add-appoint/add-appoint.component';
 import { AppointReceComponent } from './receptionist/receptionist-main-body/appoint-rece/appoint-rece.component';
 import { ReceptionistComponent } from './receptionist/receptionist.component';
@@ -35,7 +36,10 @@ children:[
 
   {path:"doctor",component:DoctorComponent,
   children:[{path:"consulting/:appointmentId",component:ConsultingComponent},
-            {path:"appointment",component:AppointmentsDocComponent}
+            {path:"appointment",component:AppointmentsDocComponent},
+            {path:"patients-list",component:PatientsListComponent},
+            {path:"details/:Id",component:DetailsComponent},
+            {path:"all-appointments/:Id",component:PatientsAllAppointmentsComponent}
           ]},
 
 //---------------------------LOGIN------------------------------
@@ -45,7 +49,8 @@ children:[
   {path:"receptionist",component:ReceptionistComponent,
   children:[
     {path:"appointment",component:AppointReceComponent},
-   {path:"add-appointment",component:AddAppointComponent}
+   {path:"add-appointment",component:AddAppointComponent},
+   {path:"patients-list",component:PatientsAppointComponent}
 ]},
 
 
@@ -64,9 +69,7 @@ children:[
 
 //---------------------------PATIENTS------------------------------
 {path:"patients",component:PatientsComponent,
-children:[{path:"patients-list",component:PatientsListComponent},
-{path:"details/:Id",component:DetailsComponent},
-{path:"all-appointments/:Id",component:PatientsAllAppointmentsComponent}] }
+children:[] }
 
 ];
 

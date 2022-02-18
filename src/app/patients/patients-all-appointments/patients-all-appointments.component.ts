@@ -30,7 +30,7 @@ export class PatientsAllAppointmentsComponent implements OnInit {
 
   listAllDetails(appointId)
   {
-    this.route.navigate(["/patients/details",appointId]);
+    this.route.navigate(["/doctor/details",appointId]);
   }
 
 }

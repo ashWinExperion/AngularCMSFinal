@@ -24,10 +24,4 @@ export class AppointReceComponent implements OnInit {
     )
   }
 
-  consult(appId)
-  {
-    this.router.navigate(["/doctor/consulting",appId]);
-    alert(appId);
-  }
-
 }
