@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-body">
+        <h3 class="headingMain">SPECIALIZATION LIST</h3>
+        <button routerLink="/admin/staff-reg/0" class="btn btn-dark btn-sm float-right">
+            <i  class="bi bi-node-plus-fill"></i>Add
+        </button>
+        <div> 
+            <input class="mb-2 form-control"   type="text" [(ngModel)]="filterterm" >
+        </div>
+        
+        <div class="row ml-4">
+            <div  class="ml-2 col-5 alert alert-secondary" *ngFor="let item of listService | filter:filterterm| paginate: { itemsPerPage: 4, currentPage: page }" role="alert">
+                <div class="row">
+                    <div class="col-2">{{item.SpecializationId}}</div>
+                    <div class="col-4">{{item.SpecializationName}}</div>
+                    <div class="col-3" >{{item.ConsultancyFee}} ₹</div>
+                    <div class="col-3" style="">
+                            <a class="icons" (click)="addEdit(item.SpecializationId)" > <i class="bi bi-pencil-square text-success"></i></a>
+                            <a class="icons"><i class="bi bi-trash-fill text-danger"></i></a>    
+                    </div>
+                </div>
+              </div>
+        </div>
+          <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div>

@@ -14,7 +14,7 @@ import { TestReportsComponent } from './lab-tech/test-reports/test-reports.compo
 import { LoginComponent } from './login/login.component';
 import { DetailsComponent } from './patients/details/details.component';
 import { PatientsAllAppointmentsComponent } from './patients/patients-all-appointments/patients-all-appointments.component';
-import { PatientsListComponent } from './patients-list/patients-list.component';
+import { PatientsListComponent } from './patients/patients-list/patients-list.component';
 import { PatientsComponent } from './patients/patients.component';
 import { ListMedicineTodayComponent } from './pharmacist/list-medicine-today/list-medicine-today.component';
 import { PharmacistComponent } from './pharmacist/pharmacist.component';
@@ -24,19 +24,24 @@ import { AppointReceComponent } from './receptionist/receptionist-main-body/appo
 import { ReceptionistComponent } from './receptionist/receptionist.component';
 import { AddMedicineComponent } from './pharmacist/add-medicine/add-medicine.component';
 import { BillComponent } from './receptionist/bill/bill.component';
+import { AuthGuard } from './shared/auth.guard';
+import { TestListComponent } from './admin/test-and-medicine/test-list/test-list.component';
+import { TreatmentlistComponent } from './admin/treatmentlist/treatmentlist.component';
 
 const routes: Routes = [
   //-------------------------ADMIN-----------------------------
-  {path:"admin",component:AdminComponent,
+  {path:"admin",component:AdminComponent,canActivate:[AuthGuard],data:{role:'1'},
 children:[
   {path:"staff-reg/:Id",component:MainBodyComponent},
   {path:"staff-list",component:StaffListComponent},
-  {path:"add-test/:Id",component:TestAndMedicineComponent}
+  {path:"add-test/:Id",component:TestAndMedicineComponent},
+  {path:"list-test",component:TestListComponent},
+  {path:"treatments",component:TreatmentlistComponent}
 ]},
 
 //---------------------------DOCTOR-----------------------------
 
-  {path:"doctor",component:DoctorComponent,
+  {path:"doctor",component:DoctorComponent,canActivate:[AuthGuard],data:{role:'2'},
   children:[{path:"consulting/:appointmentId",component:ConsultingComponent},
             {path:"appointment",component:AppointmentsDocComponent},
             {path:"patients-list",component:PatientsListComponent},
@@ -48,7 +53,7 @@ children:[
   {path:"login",component:LoginComponent},
 
 //---------------------------RECEPIONIST--------------------------
-  {path:"receptionist",component:ReceptionistComponent,
+  {path:"receptionist",component:ReceptionistComponent,canActivate:[AuthGuard],data:{role:'3'},
   children:[
     {path:"appointment",component:AppointReceComponent},
    {path:"add-appointment",component:AddAppointComponent},
@@ -58,14 +63,14 @@ children:[
 
 
 //---------------------------PHARMACIST--------------------------
-{path:"pharmacist",component:PharmacistComponent,
+{path:"pharmacist",component:PharmacistComponent,canActivate:[AuthGuard],data:{role:'4'},
 children:[
   {path:"patients-for-today",component:ListMedicineTodayComponent},
   {path:"add-med/:Id",component:AddMedicineComponent},
 ]},
 
 //---------------------------LAB TECH------------------------------
-{path:"lab-tech",component:LabTechComponent,
+{path:"lab-tech",component:LabTechComponent,canActivate:[AuthGuard],data:{role:'5'},
 children:[
   {path:"tests-for-today",component:ListTestTodayComponent},
   {path:"tests-report-list/:Id",component:TestReportsComponent},
