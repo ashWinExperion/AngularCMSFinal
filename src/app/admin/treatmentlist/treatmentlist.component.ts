@@ -26,6 +26,6 @@ export class TreatmentlistComponent implements OnInit {
 
 
   addEdit(item){
-    this.route.navigate(["/admin/add-test",item]);
+    this.route.navigate(["/admin/add-treatment",item]);
   }
 }

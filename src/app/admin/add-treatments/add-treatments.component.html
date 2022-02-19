@@ -1,0 +1,46 @@
+<div class="card">
+    <div class="card-body">
+        <h3>TREATMENTS</h3>
+        <div class="row rowBody">
+            <div class="col-3 colLeft">
+
+            </div>
+            <div class="col-9 colRight">
+                <div class="box">
+                    <h3 id='SpecializationHeader' class="">ADD TREATMENTS</h3>
+                    <form #SpecializationForm="ngForm" (ngSubmit)="onSubmit(SpecializationForm)">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" [(ngModel)]="SpecializationObj.SpecializationId"
+                                    name="SpecializationId" class="d-none" placeholder="">
+
+                                <input type="text" [(ngModel)]="SpecializationObj.Status" name="Status" class="d-none"
+                                    placeholder="Specialization Status">
+
+                                <input required #SpecializationName="ngModel"
+                                    [ngClass]="{'is-invalid': (SpecializationName.touched && SpecializationName.invalid)}"
+                                    type="text" [(ngModel)]="SpecializationObj.SpecializationName"
+                                    name="SpecializationName" id='Specializationname' class="form-control"
+                                    placeholder="Specialization Name">
+
+                            </div>
+                            <div class="col">
+                                <input required #ConsultancyFee="ngModel"
+                                    [ngClass]="{'is-invalid': (ConsultancyFee.touched && ConsultancyFee.invalid) ||( ConsultancyFee.touched && ConsultancyFee.value<0)}"
+                                    type="number" [(ngModel)]="SpecializationObj.ConsultancyFee" name="ConsultancyFee"
+                                    id='ConsultancyFee' class="form-control" placeholder="Price">
+                            </div>
+                        </div>
+
+              
+
+                        <button style="float: right;margin-top: 10%;" type="submit"
+                            class="btn btn-warning">Submit</button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

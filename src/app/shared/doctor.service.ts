@@ -26,9 +26,29 @@ export class DoctorService {
   }
 
 
+  updSpecialization(sp):Observable<any>{
+
+    return this.httpClient.put("https://localhost:44379/api/specialization",sp);
+  }
+
+
+  addNewSpecialization(sp):Observable<any>{
+    console.log("---");
+    
+    console.log(sp);
+    
+    return this.httpClient.post("https://localhost:44379/api/specialization",sp);
+  }
+
+
   getAllSpecialization():Observable<any>{
  
     return this.httpClient.get("https://localhost:44379/api/specialization/raw");
+  }
+
+  getAllSpecializationById(id):Observable<any>{
+ 
+    return this.httpClient.get("https://localhost:44379/api/specialization/"+id);
   }
 
 

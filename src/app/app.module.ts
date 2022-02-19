@@ -62,6 +62,7 @@ import { AddMedicineComponent } from './pharmacist/add-medicine/add-medicine.com
 import { BillComponent } from './receptionist/bill/bill.component';
 import { TestListComponent } from './admin/test-and-medicine/test-list/test-list.component';
 import { TreatmentlistComponent } from './admin/treatmentlist/treatmentlist.component';
+import { AddTreatmentsComponent } from './admin/add-treatments/add-treatments.component';
 
 @NgModule({
   declarations: [
@@ -103,7 +104,8 @@ import { TreatmentlistComponent } from './admin/treatmentlist/treatmentlist.comp
     AddMedicineComponent,
     BillComponent,
     TestListComponent,
-    TreatmentlistComponent
+    TreatmentlistComponent,
+    AddTreatmentsComponent
 
   ],
   imports: [

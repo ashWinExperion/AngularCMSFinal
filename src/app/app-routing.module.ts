@@ -27,6 +27,7 @@ import { BillComponent } from './receptionist/bill/bill.component';
 import { AuthGuard } from './shared/auth.guard';
 import { TestListComponent } from './admin/test-and-medicine/test-list/test-list.component';
 import { TreatmentlistComponent } from './admin/treatmentlist/treatmentlist.component';
+import { AddTreatmentsComponent } from './admin/add-treatments/add-treatments.component';
 
 const routes: Routes = [
   //-------------------------ADMIN-----------------------------
@@ -36,7 +37,9 @@ children:[
   {path:"staff-list",component:StaffListComponent},
   {path:"add-test/:Id",component:TestAndMedicineComponent},
   {path:"list-test",component:TestListComponent},
-  {path:"treatments",component:TreatmentlistComponent}
+  {path:"treatments",component:TreatmentlistComponent},
+  {path:"add-treatment/:Id",component:AddTreatmentsComponent}
+  
 ]},
 
 //---------------------------DOCTOR-----------------------------
