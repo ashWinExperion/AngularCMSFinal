@@ -24,4 +24,10 @@ export class AppointReceComponent implements OnInit {
     )
   }
 
+  onBill(appointmentId)
+  {
+    alert(appointmentId);
+    this.router.navigate(["receptionist/bill",appointmentId]);
+  }
+
 }

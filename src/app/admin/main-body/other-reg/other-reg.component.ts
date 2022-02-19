@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DoctorService } from 'src/app/shared/doctor.service';
 import { OtherStaffReg } from 'src/app/shared/other-staff-reg';
@@ -14,11 +14,31 @@ import { UsersService } from 'src/app/shared/users.service';
 })
 export class OtherRegComponent implements OnInit {
 
-  constructor(private userService:UsersService,private router: ActivatedRoute,
+  dateIsGreater=false;
+
+  constructor(private userService:UsersService,
+    private router: ActivatedRoute,
+    private route:Router,
     private toastr:ToastrService ) { }
   editUserId;
   listAllRoles;
   userEditObj:OtherStaffReg=new OtherStaffReg();
+
+  OnDateChange(DateOfBirth)
+  {
+    let today=new Date();
+    let compareDay=new Date(DateOfBirth);
+    if (today<=compareDay) {
+      this.dateIsGreater=true;
+    }
+    else
+    {
+      this.dateIsGreater=false;
+    }
+    
+  }
+
+
   ngOnInit(): void {
 
     this.editUserId = this.router.snapshot.params['Id'];
@@ -60,6 +80,7 @@ export class OtherRegComponent implements OnInit {
     if (this.editUserId == 0) {
     this.userService.addUsers(form.value).subscribe(result=>{
       this.toastr.success("Staff Registered...!!!","Success");
+      this.route.navigateByUrl("/admin/staff-list");
       console.log(result);
     })
   }
@@ -67,6 +88,7 @@ export class OtherRegComponent implements OnInit {
   {
     this.userService.updUsers(form.value).subscribe(result=>{
       this.toastr.success("Staff Updated ...!!!","Success");
+      this.route.navigateByUrl("/admin/staff-list");
       console.log(result);
     })
   }

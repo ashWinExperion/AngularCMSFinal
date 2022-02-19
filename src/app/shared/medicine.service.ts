@@ -28,4 +28,15 @@ export class MedicineService {
     return this.httpClient.get("https://localhost:44379/api/medicineprescription/appointments/"+id);
   }
   
+  addNewMed(form){
+    return this.httpClient.post("https://localhost:44379/api/medicines",form);
+  }
+
+  updMedicine(form){
+    return this.httpClient.put("https://localhost:44379/api/medicines",form);
+  }
+
+  getMedById(id):Observable<any>{
+    return this.httpClient.get("https://localhost:44379/api/medicines/"+id);
+  }
 }

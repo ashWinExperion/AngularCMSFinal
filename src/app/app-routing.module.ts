@@ -14,7 +14,7 @@ import { TestReportsComponent } from './lab-tech/test-reports/test-reports.compo
 import { LoginComponent } from './login/login.component';
 import { DetailsComponent } from './patients/details/details.component';
 import { PatientsAllAppointmentsComponent } from './patients/patients-all-appointments/patients-all-appointments.component';
-import { PatientsListComponent } from './patients/patients-list/patients-list.component';
+import { PatientsListComponent } from './patients-list/patients-list.component';
 import { PatientsComponent } from './patients/patients.component';
 import { ListMedicineTodayComponent } from './pharmacist/list-medicine-today/list-medicine-today.component';
 import { PharmacistComponent } from './pharmacist/pharmacist.component';
@@ -22,6 +22,8 @@ import { PatientsAppointComponent } from './receptionist/patients-appoint/patien
 import { AddAppointComponent } from './receptionist/receptionist-main-body/add-appoint/add-appoint.component';
 import { AppointReceComponent } from './receptionist/receptionist-main-body/appoint-rece/appoint-rece.component';
 import { ReceptionistComponent } from './receptionist/receptionist.component';
+import { AddMedicineComponent } from './pharmacist/add-medicine/add-medicine.component';
+import { BillComponent } from './receptionist/bill/bill.component';
 
 const routes: Routes = [
   //-------------------------ADMIN-----------------------------
@@ -29,7 +31,7 @@ const routes: Routes = [
 children:[
   {path:"staff-reg/:Id",component:MainBodyComponent},
   {path:"staff-list",component:StaffListComponent},
-  {path:"add-med-test",component:TestAndMedicineComponent}
+  {path:"add-test/:Id",component:TestAndMedicineComponent}
 ]},
 
 //---------------------------DOCTOR-----------------------------
@@ -50,7 +52,8 @@ children:[
   children:[
     {path:"appointment",component:AppointReceComponent},
    {path:"add-appointment",component:AddAppointComponent},
-   {path:"patients-list",component:PatientsAppointComponent}
+   {path:"patients-list",component:PatientsAppointComponent},
+   {path:"bill/:Id",component:BillComponent}
 ]},
 
 
@@ -58,6 +61,7 @@ children:[
 {path:"pharmacist",component:PharmacistComponent,
 children:[
   {path:"patients-for-today",component:ListMedicineTodayComponent},
+  {path:"add-med/:Id",component:AddMedicineComponent},
 ]},
 
 //---------------------------LAB TECH------------------------------

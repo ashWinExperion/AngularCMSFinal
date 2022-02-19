@@ -6,8 +6,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TestService {
-
+  
   constructor(private httpClient:HttpClient) { }
+
+
+
+  addNewTest(form):Observable<any> {
+    return this.httpClient.post("https://localhost:44379/api/tests",form);
+  }
+  updtest(form):Observable<any> {
+    return this.httpClient.put("https://localhost:44379/api/tests",form);
+  }
+
+  getTestById(id):Observable<any>{
+    return this.httpClient.get("https://localhost:44379/api/tests/"+id);
+  }
+
+
 
   getAllTests():Observable<any>{
     return this.httpClient.get("https://localhost:44379/api/tests/raw");
