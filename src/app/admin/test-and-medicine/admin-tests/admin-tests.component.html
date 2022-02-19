@@ -12,11 +12,11 @@
                             class="d-none" placeholder="">
                             <input type="text" [(ngModel)]="testObj.Status" name="Status"
                             class="d-none" placeholder="Test Status">
-                        <input required #TestName="ngModel" [ngClass]="{'is-invalid': (TestName.touched && TestName.invalid) ||( TestName.touched && TestName.value==0)}" type="text" [(ngModel)]="testObj.TestName" name="TestName" id='testname' 
+                        <input required #TestName="ngModel" [ngClass]="{'is-invalid': (TestName.touched && TestName.invalid)}" type="text" [(ngModel)]="testObj.TestName" name="TestName" id='testname' 
                             class="form-control" placeholder="Test Name">
                     </div>
                     <div class="col">
-                        <input required  #TestPrice="ngModel" [ngClass]="{'is-invalid': (TestPrice.touched && TestPrice.invalid) ||( TestPrice.touched && TestPrice.value==0)}"    type="number" [(ngModel)]="testObj.Price" name="Price" id='testPrice' 
+                        <input required  #TestPrice="ngModel" [ngClass]="{'is-invalid': (TestPrice.touched && TestPrice.invalid) ||( TestPrice.touched && TestPrice.value<0)}"    type="number" [(ngModel)]="testObj.Price" name="Price" id='testPrice' 
                             class="form-control" placeholder="Price">
                     </div>
                 </div>

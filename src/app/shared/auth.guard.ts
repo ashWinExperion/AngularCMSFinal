@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
    
     if(currentRole!==expectedRole)
     {
-      this.router.navigateByUrl("/");
+      this.router.navigateByUrl("/login");
     }
     return true;
   }

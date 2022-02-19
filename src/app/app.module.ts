@@ -49,7 +49,7 @@ import { AdminMedicineComponent } from './admin/test-and-medicine/admin-medicine
 import{PatientsService} from './shared/patients.service';
 import { GeneralNotesComponent } from './doctor/doctor-main-body/general-notes/general-notes.component';
 import { PatientsComponent } from './patients/patients.component';
-import { PatientsListComponent } from './patients-list/patients-list.component';
+import { PatientsListComponent } from './patients/patients-list/patients-list.component';
 import { ToastrModule } from 'ngx-toastr';
 import { PatientsAllAppointmentsComponent } from './patients/patients-all-appointments/patients-all-appointments.component';
 import { DetailsComponent } from './patients/details/details.component';
@@ -60,6 +60,9 @@ import {NgxPrintModule} from 'ngx-print';
 import { PatientsAppointComponent } from './receptionist/patients-appoint/patients-appoint.component';
 import { AddMedicineComponent } from './pharmacist/add-medicine/add-medicine.component';
 import { BillComponent } from './receptionist/bill/bill.component';
+import { TestListComponent } from './admin/test-and-medicine/test-list/test-list.component';
+import { TreatmentlistComponent } from './admin/treatmentlist/treatmentlist.component';
+import { AddTreatmentsComponent } from './admin/add-treatments/add-treatments.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +102,10 @@ import { BillComponent } from './receptionist/bill/bill.component';
     ReportDetailsComponent,
     PatientsAppointComponent,
     AddMedicineComponent,
-    BillComponent
+    BillComponent,
+    TestListComponent,
+    TreatmentlistComponent,
+    AddTreatmentsComponent
 
   ],
   imports: [

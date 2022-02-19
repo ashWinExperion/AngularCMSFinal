@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-body">
+        <h3 class="headingMain">TEST LIST</h3>
+        <button routerLink="/admin/staff-reg/0" class="btn btn-dark btn-sm float-right">
+            <i  class="bi bi-node-plus-fill"></i>Add
+        </button>
+        <div> 
+            <input class="mb-2 form-control"   type="text" [(ngModel)]="filterterm" >
+        </div>
+        <div  class="alert alert-secondary" *ngFor="let item of listTest | filter:filterterm| paginate: { itemsPerPage: 4, currentPage: page }" role="alert">
+            <div class="row">
+                <div class="col-2"><span class="badge badge-secondary">#TST:{{item.TestId}}</span></div>
+                <div class="col-2"> <span class="badge badge-dark">{{item.TestName}}</span></div>
+                <div class="col-3">{{item.NormalRangeStart}} - {{item.NormalRangeEnd}} ({{item.Unit}})</div>
+                <div class="col-2" >{{item.Price}} ₹</div>
+                <div class="col-3" style="padding-left: 15%;">
+                        <a class="icons" (click)="addEdit(item.TestId)" > <i class="bi bi-pencil-square text-success"></i></a>
+                        <a class="icons"><i class="bi bi-trash-fill text-danger"></i></a>    
+                </div>
+            </div>
+          </div>
+          <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div>
