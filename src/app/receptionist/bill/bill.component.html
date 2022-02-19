@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card-body">
+        <h3>Bill</h3>
+        <div id="print-section">
+            <alert type="info"  >
+                <span class="badge badge-info">PT#0{{listBillDetails.patientId}}</span>
+                <span class="ml-1 mr-1">{{listBillDetails.patientName}}</span> /
+                <span class="ml-2 mr-1">Dr.{{listBillDetails.docFName}}</span> /
+                <span class="ml-2 mr-1">{{listBillDetails.dateOfAppoint | date}}</span>
+            </alert>
+
+            <alert type="info"  >
+                <div class="row">
+                    <div class="col-4">
+                        <h6>Fees</h6>
+                        <span class="badge badge-info">Consultancy Fee :</span>
+                        <span>- ₹{{listBillDetails.fee}}</span>
+                    </div>
+                    <div class="col-4">
+                        <h6>Medicines</h6>
+                        <div *ngFor="let item of listBillDetails.medList" >
+                            <span class="badge badge-info">{{item.Name}}</span>
+                            <span class="ml-1 mr-1"> - ₹{{item.Price}}</span> 
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <h6>Test</h6>
+                        <div *ngFor="let item of listBillDetails.testList" >
+                            <span class="badge badge-info">{{item.TestName}}</span>
+                            <span class="ml-1 mr-1"> - ₹{{item.Price}}</span> 
+                        </div>
+                    </div>
+                </div>
+            </alert>
+
+            <alert type="info">
+                <span class="badge badge-info">Total Bill Amount : </span>
+                <span class="ml-1 mr-1"> - ₹{{listBillDetails.total}}</span> 
+            </alert>
+            </div>
+            <button class="btn btn-sm btn-warning float-right" printTitle="Print Title" printSectionId="print-section" ngxPrint>
+                Print
+              </button>
+    </div>
+</div>

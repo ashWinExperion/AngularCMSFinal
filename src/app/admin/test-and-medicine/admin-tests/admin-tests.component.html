@@ -5,26 +5,32 @@
     <div class="col-9 colRight">
         <div class="box">
             <h3 id='testHeader' class="">ADD TEST</h3>
-            <form id='testForm' class="">
+            <form  #testForm="ngForm"  (ngSubmit)="onSubmit(testForm)">
                 <div class="row">
                     <div class="col">
-                        <input type="text" name="testName" id='testname' onfocusout="checkName('testname')"
+                        <input type="text" [(ngModel)]="testObj.TestId" name="TestId"
+                            class="d-none" placeholder="">
+                            <input type="text" [(ngModel)]="testObj.Status" name="Status"
+                            class="d-none" placeholder="Test Status">
+                        <input required #TestName="ngModel" [ngClass]="{'is-invalid': (TestName.touched && TestName.invalid) ||( TestName.touched && TestName.value==0)}" type="text" [(ngModel)]="testObj.TestName" name="TestName" id='testname' 
                             class="form-control" placeholder="Test Name">
                     </div>
                     <div class="col">
-                        <input type="text" name="testPrice" id='testPrice' onfocusout="checkNumber('testPrice')"
+                        <input required  #TestPrice="ngModel" [ngClass]="{'is-invalid': (TestPrice.touched && TestPrice.invalid) ||( TestPrice.touched && TestPrice.value==0)}"    type="number" [(ngModel)]="testObj.Price" name="Price" id='testPrice' 
                             class="form-control" placeholder="Price">
                     </div>
                 </div>
 
                 <div class="row" style="margin-top: 2%;">
+                    <div class="col d-flex">
+                        <input  required  #NormalRangeStart="ngModel" [ngClass]="{'is-invalid': (NormalRangeStart.touched && NormalRangeStart.invalid) ||( NormalRangeStart.touched && NormalRangeStart.value<0)}" type="number" [(ngModel)]="testObj.NormalRangeStart" name="NormalRangeStart" id='startVal' class="form-control"
+                            placeholder="Range Start">
+                        <input required  #NormalRangeEnd="ngModel" [ngClass]="{'is-invalid': (NormalRangeEnd.touched && NormalRangeEnd.invalid) ||( NormalRangeEnd.touched && NormalRangeEnd.value<0) || (NormalRangeEnd.value < NormalRangeStart.value)}" type="number" [(ngModel)]="testObj.NormalRangeEnd" name="NormalRangeEnd" id='endVal'
+                        class="form-control" placeholder="Range End">
+                </div>
                     <div class="col">
-                        <input type="number" name="startVal" id='startVal' onfocusout="" class="form-control"
-                            placeholder="Normal Range Start">
-                    </div>
-                    <div class="col">
-                        <input type="number" name="endVal" id='endVal' onfocusout="greaterThan('endVal','startVal')"
-                            class="form-control" placeholder="Normal Range End">
+                        <input type="text" [(ngModel)]="testObj.Unit" name="Unit" id='Unit'
+                            class="form-control" placeholder="Unit">
                     </div>
                 </div>
 

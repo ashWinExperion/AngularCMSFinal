@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { MedicineService } from 'src/app/shared/medicine.service';
-import {Medicine} from '../../../shared/medicine'
+import {Medicine} from '../../shared/medicine'
 
 @Component({
-  selector: 'app-admin-medicine',
-  templateUrl: './admin-medicine.component.html',
-  styleUrls: ['./admin-medicine.component.scss'],
+  selector: 'app-add-medicine',
+  templateUrl: './add-medicine.component.html',
+  styleUrls: ['./add-medicine.component.scss']
 })
-export class AdminMedicineComponent implements OnInit {
+export class AddMedicineComponent implements OnInit {
   medicineObj:Medicine=new Medicine();
   editMedId;
   constructor(

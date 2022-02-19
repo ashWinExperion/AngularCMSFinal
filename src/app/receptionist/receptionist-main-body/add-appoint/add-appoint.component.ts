@@ -18,11 +18,13 @@ export class AddAppointComponent implements OnInit {
   listOfPatients;
   selectPatinetId;
   selectedOption;
+  dateToday=new Date();
   previewOption: any;
   selectedValue?: string;
   editAppointID:Appointment=new Appointment();
   receptionistIdLogedUser;
-
+  dateIsNotValid;
+  
   constructor(private doctorSrvice:DoctorService,
     public appointmentService:AppointmentService,
     private patientsService :PatientsService,
@@ -67,9 +69,21 @@ export class AddAppointComponent implements OnInit {
     }
   }
 
-  onDateChange(event){
-    console.log(event.target.value);
-    this.appointmentService.getNextToken(event.target.value);
+  onDateChange(dateValue){
+    console.log(event);
+    let today=new Date();
+    let compareDay=new Date(dateValue);
+
+    var result = new Date(today);
+    result.setDate(result.getDate() + 1);
+    if (result<compareDay) {
+      this.dateIsNotValid=true;
+    }
+    else
+    {
+      this.dateIsNotValid=false;
+    }
+    this.appointmentService.getNextToken(dateValue);
   }
 
  
@@ -85,4 +99,5 @@ export class AddAppointComponent implements OnInit {
     console.log(form.value);
   }
 
+ 
 }

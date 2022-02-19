@@ -30,7 +30,7 @@
                             <div class="row" style="margin-top: 5%;">
 
                                 <div class="col">
-                                    <input type="date" (change)="onDateChange($event)" ngModel name="Date" class="form-control" placeholder="Date"></div>
+                                    <input type="date"  min="{{dateToday | date:'yyyy-MM-dd'}}" #DateOfAppoint="ngModel"  [ngClass]="{'is-invalid': (DateOfAppoint.touched && DateOfAppoint.invalid) ||( DateOfAppoint.touched && dateIsNotValid)}" (change)="onDateChange(DateOfAppoint.value)" ngModel name="Date" class="form-control" placeholder="Date"></div>
                                     <div class="col">
                                         <input type="time" ngModel name="Time" class="form-control" placeholder="Time"></div>
                                     </div>

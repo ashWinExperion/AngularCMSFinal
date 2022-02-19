@@ -7,7 +7,8 @@
 
             <h3 id='medHeader'>ADD MEDICINE</h3>
             <form #medForm="ngForm"  (ngSubmit)="onSubmit(medForm)">
-                <input name="MedicineId" value="0" [(ngModel)]="medicineObj.MedicineId" class="d-none" >
+                <input name="Status" [(ngModel)]="medicineObj.Status" class="d-none" >
+                <input name="MedicineId"  [(ngModel)]="medicineObj.MedicineId" class="d-none" >
                 <div class="row">
                     <div class="col">
                         <input type="text" [(ngModel)]="medicineObj.Name" name="Name" id='medname' class="form-control"
