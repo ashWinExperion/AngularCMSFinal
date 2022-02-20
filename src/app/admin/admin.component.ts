@@ -4,15 +4,19 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
-
-  constructor(public generalService:GeneralService,private toasterServie:ToastrService) { }
-  sideBarContent=[{Title:"STAFFS",Link:"staff-list",Icon:"bi bi-person-plus"},
-  {Title:"TEST",Link:"list-test",Icon:"bi bi-activity"},
-  {Title:"TREATMENTS",Link:"treatments",Icon:"bi bi-bandaid"}]
+  constructor(
+    public generalService: GeneralService,
+    private toasterServie: ToastrService
+  ) {}
+  sideBarContent = [
+    { Title: 'STAFFS', Link: 'staff-list', Icon: 'bi bi-person-plus' },
+    { Title: 'TEST', Link: 'list-test', Icon: 'bi bi-activity' },
+    { Title: 'TREATMENTS', Link: 'treatments', Icon: 'bi bi-bandaid' },
+  ];
   ngOnInit(): void {
-    this.toasterServie.success("Admin Loged In","Successfully...!!!");
+    this.toasterServie.success('Admin Loged In', 'Successfully...!!!');
   }
 }
