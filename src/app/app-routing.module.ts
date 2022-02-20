@@ -28,6 +28,8 @@ import { AuthGuard } from './shared/auth.guard';
 import { TestListComponent } from './admin/test-and-medicine/test-list/test-list.component';
 import { TreatmentlistComponent } from './admin/treatmentlist/treatmentlist.component';
 import { AddTreatmentsComponent } from './admin/add-treatments/add-treatments.component';
+import { AddPatientsComponent } from './receptionist/add-patients/add-patients.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   //-------------------------ADMIN-----------------------------
@@ -42,6 +44,7 @@ children:[
   
 ]},
 
+
 //---------------------------DOCTOR-----------------------------
 
   {path:"doctor",component:DoctorComponent,canActivate:[AuthGuard],data:{role:'2'},
@@ -53,7 +56,8 @@ children:[
           ]},
 
 //---------------------------LOGIN------------------------------
-  {path:"login",component:LoginComponent},
+{path:"",component:HomeComponent},  
+{path:"login",component:LoginComponent},
 
 //---------------------------RECEPIONIST--------------------------
   {path:"receptionist",component:ReceptionistComponent,canActivate:[AuthGuard],data:{role:'3'},
@@ -61,7 +65,8 @@ children:[
     {path:"appointment",component:AppointReceComponent},
    {path:"add-appointment",component:AddAppointComponent},
    {path:"patients-list",component:PatientsAppointComponent},
-   {path:"bill/:Id",component:BillComponent}
+   {path:"bill/:Id",component:BillComponent},
+   {path:"add-patient/:Id",component:AddPatientsComponent}
 ]},
 
 

@@ -63,6 +63,8 @@ import { BillComponent } from './receptionist/bill/bill.component';
 import { TestListComponent } from './admin/test-and-medicine/test-list/test-list.component';
 import { TreatmentlistComponent } from './admin/treatmentlist/treatmentlist.component';
 import { AddTreatmentsComponent } from './admin/add-treatments/add-treatments.component';
+import { AddPatientsComponent } from './receptionist/add-patients/add-patients.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -105,7 +107,9 @@ import { AddTreatmentsComponent } from './admin/add-treatments/add-treatments.co
     BillComponent,
     TestListComponent,
     TreatmentlistComponent,
-    AddTreatmentsComponent
+    AddTreatmentsComponent,
+    AddPatientsComponent,
+    HomeComponent
 
   ],
   imports: [

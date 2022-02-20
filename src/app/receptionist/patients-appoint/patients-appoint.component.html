@@ -1,6 +1,9 @@
 <div class="card">
     <div class="card-body">
-        <h3>PATIENTS</h3>
+        <h3 class="headingMain">PATIENTS</h3>
+        <button routerLink="/receptionist/add-patient/0" class="btn btn-dark btn-sm float-right">
+            <i  class="bi bi-node-plus-fill"></i>Add
+        </button>
         <div>
             <input class="mb-2 form-control" type="text" [(ngModel)]="filterterm">
         </div>
@@ -21,9 +24,8 @@
                 </div>
                 <div class="col-4" style="padding-left: 15%;">
 
-                    <a class="icons" (click)="consult(item.PatientId)"> <i
-                            class="bi bi-eye-fill"></i></a>
-                    <a class="icons" ><i
+               
+                    <a class="icons" (click)="addEdit(item.PatientId)"><i
                             class="bi bi-pencil-square text-success"></i></a>
                     <a class="icons"><i class="bi bi-trash-fill text-danger"></i></a>
                 </div>

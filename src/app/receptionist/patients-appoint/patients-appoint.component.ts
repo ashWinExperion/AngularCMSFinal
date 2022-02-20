@@ -26,16 +26,17 @@ export class PatientsAppointComponent implements OnInit {
   ngOnInit(): void {
     this.patientsService.getAllPatients().subscribe(
       result=>{
+
         this.listPatients=result;
+
         console.log(result);
       }
     )
   }
 
-  consult(appId)
+  addEdit(ptId)
   {
-    this.router.navigate(["/",appId]);
-    alert(appId);
+    this.router.navigate(["/receptionist/add-patient",ptId]);
   }
 
 }
