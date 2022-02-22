@@ -10,7 +10,7 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) { }
   
-  public loginVerify(user:User)
+ loginVerify(user:User):Observable<any>
   {
     return this.httpClient.post("https://localhost:44379/api/login/token",user);
   }

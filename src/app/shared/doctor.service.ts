@@ -26,6 +26,10 @@ export class DoctorService {
   }
 
 
+  disableSpecialization(sp):Observable<any>{
+    return this.httpClient.delete("https://localhost:44379/api/specialization/"+sp);
+  }
+
   updSpecialization(sp):Observable<any>{
 
     return this.httpClient.put("https://localhost:44379/api/specialization",sp);

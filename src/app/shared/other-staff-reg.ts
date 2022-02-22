@@ -11,6 +11,7 @@ export class OtherStaffReg {
      State ="";
      UserDob =new Date();
      UserName ="";
+     Status=1;
    
     
 }

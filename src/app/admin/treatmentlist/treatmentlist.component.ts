@@ -24,7 +24,14 @@ export class TreatmentlistComponent implements OnInit {
     )
   }
 
-
+  disable(item){
+    this.doctorService.disableSpecialization(item).subscribe(
+      result=>{
+        console.log("Delete");
+        this.ngOnInit();
+      }
+    )
+  }
   addEdit(item){
     this.route.navigate(["/admin/add-treatment",item]);
   }

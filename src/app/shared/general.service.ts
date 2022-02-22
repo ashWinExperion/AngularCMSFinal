@@ -18,9 +18,9 @@ export class GeneralService {
 }
 
 
-sendMail(mailHtmlString)
+sendMail(mailHtmlString,email)
 {
 
-  return this.httpClient.post("https://localhost:44379/api/sendmail/stringhtml",{ "msgString":mailHtmlString});
+  return this.httpClient.post("https://localhost:44379/api/sendmail/stringhtml",{ "msgString":mailHtmlString,"email":email});
 }
 }

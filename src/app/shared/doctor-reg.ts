@@ -12,4 +12,5 @@ export class DoctorReg {
  JoinDate=new Date();
  DoctorId=0;
  UserId=0;
+ Status=1;
 }

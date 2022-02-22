@@ -30,6 +30,7 @@ import { TreatmentlistComponent } from './admin/treatmentlist/treatmentlist.comp
 import { AddTreatmentsComponent } from './admin/add-treatments/add-treatments.component';
 import { AddPatientsComponent } from './receptionist/add-patients/add-patients.component';
 import { HomeComponent } from './home/home.component';
+import { UserviewComponent } from './admin/staff-list/userview/userview.component';
 
 const routes: Routes = [
   //-------------------------ADMIN-----------------------------
@@ -40,7 +41,8 @@ children:[
   {path:"add-test/:Id",component:TestAndMedicineComponent},
   {path:"list-test",component:TestListComponent},
   {path:"treatments",component:TreatmentlistComponent},
-  {path:"add-treatment/:Id",component:AddTreatmentsComponent}
+  {path:"add-treatment/:Id",component:AddTreatmentsComponent},
+  {path:"user-view/:Id",component:UserviewComponent}
   
 ]},
 
@@ -52,7 +54,8 @@ children:[
             {path:"appointment",component:AppointmentsDocComponent},
             {path:"patients-list",component:PatientsListComponent},
             {path:"details/:Id",component:DetailsComponent},
-            {path:"all-appointments/:Id",component:PatientsAllAppointmentsComponent}
+            {path:"all-appointments/:Id",component:PatientsAllAppointmentsComponent},
+            
           ]},
 
 //---------------------------LOGIN------------------------------

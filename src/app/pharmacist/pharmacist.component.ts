@@ -13,7 +13,7 @@ export class PharmacistComponent implements OnInit {
   
   sideBarContent=[{Title:"PATIENTS",Link:"patients-for-today",Icon:"bi bi-people"},
   {Title:"HISTORY",Link:"",Icon:"bi bi-journals"},
-  {Title:"MEDICINES",Link:"",Icon:"bi bi-collection-fill"}]
+  {Title:"MEDICINES",Link:"add-med/0",Icon:"bi bi-collection-fill"}]
   ngOnInit(): void {
     this.toasterServie.success("Receptionist Loged In","Successfully.!!!");
   }

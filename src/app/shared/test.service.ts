@@ -23,6 +23,9 @@ export class TestService {
   }
 
 
+  disableTest(id):Observable<any>{
+    return this.httpClient.delete("https://localhost:44379/api/tests/"+id);
+  }
 
   getAllTests():Observable<any>{
     return this.httpClient.get("https://localhost:44379/api/tests/raw");

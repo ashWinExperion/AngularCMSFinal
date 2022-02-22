@@ -10,11 +10,11 @@
                     <span class="badge badge-secondary">#PT0{{item.patientId}}</span>
                     <span>{{item.firstName + " "}}{{item.lastName}}</span>
                 </div>
-                <div class="col-3">
+                <div class="col-2">
                     <span class="badge badge-secondary">Dr.</span>
-                    <span>{{item.docFirstName + " "}}{{item.docLastName}}</span>
+                    <span>{{item.docFirstName}}</span>
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                     <i class="bi bi-alarm"></i>
                     {{item.time}}{{" - "}}{{item.date|date}}
                 </div>

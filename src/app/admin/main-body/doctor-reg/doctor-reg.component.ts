@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/shared/auth.service';
 import { DoctorService } from 'src/app/shared/doctor.service';
+import { User } from 'src/app/shared/user';
 import { UsersService } from 'src/app/shared/users.service';
 
 @Component({
@@ -14,28 +16,25 @@ import { UsersService } from 'src/app/shared/users.service';
 export class DoctorRegComponent implements OnInit {
   listSpecialization;
   editUserId;
-  today=new Date();
-  dateIsGreater=false;
+  today = new Date();
+  dateIsGreater = false;
   constructor(
     public doctorSrvice: DoctorService,
     private router: ActivatedRoute,
     private userService: UsersService,
-    private toastrService:ToastrService,
-    private route:Router
+    private toastrService: ToastrService,
+    private route: Router,
+    private authService: AuthService
   ) {}
 
-  OnDateChange(DateOfBirth)
-  {
-    let today=new Date();
-    let compareDay=new Date(DateOfBirth);
-    if (today<=compareDay) {
-      this.dateIsGreater=true;
+  OnDateChange(DateOfBirth) {
+    let today = new Date();
+    let compareDay = new Date(DateOfBirth);
+    if (today <= compareDay) {
+      this.dateIsGreater = true;
+    } else {
+      this.dateIsGreater = false;
     }
-    else
-    {
-      this.dateIsGreater=false;
-    }
-    
   }
   ngOnInit(): void {
     this.editUserId = this.router.snapshot.params['Id'];
@@ -46,6 +45,7 @@ export class DoctorRegComponent implements OnInit {
           this.doctorSrvice
             .getDoctorDetailsById(this.editUserId)
             .subscribe((result) => {
+              console.log(result);
               // this.doctorSrvice.doctorRegFormData=result;
               var datePipe = new DatePipe('en-UK');
               let formatedDate = datePipe.transform(
@@ -67,26 +67,45 @@ export class DoctorRegComponent implements OnInit {
     });
   }
 
-
-  onChangeFn(event){
+  onChangeFn(event) {
     console.log(event);
   }
 
   onSubmit(form: NgForm) {
+    console.log(form.value);
+
+    if (form.value.Specialization == 0) {
+      this.toastrService.error('Check With Specialization', 'Error');
+      return 0;
+    }
+
     if (this.editUserId > 0) {
       console.log(form.value);
       this.doctorSrvice.updDoctor(form.value).subscribe((result) => {
-        this.toastrService.success("Doctor Updated...!!!","Success");
-        this.route.navigateByUrl("/admin/staff-list");
+        this.toastrService.success('Doctor Updated...!!!', 'Success');
+        form.resetForm();
+        this.route.navigateByUrl('/admin/staff-list');
         console.log(result);
       });
       console.log(form);
     } else {
-      this.doctorSrvice.addDoctor(form.value).subscribe((result) => {
-        this.toastrService.success("Doctor Registered...!!!","Success");
-        this.route.navigateByUrl("/admin/staff-list");
-        console.log(result);
+      var loginDetails = new User();
+      loginDetails.UserName = form.value.UserName;
+      loginDetails.Password = form.value.Password;
+      this.authService.loginVerify(loginDetails).subscribe((result) => {
+        if (result.RoleId != 0) {
+          this.toastrService.error('Username already exist..!!', 'Error');
+          return 0;
+        } else {
+          this.doctorSrvice.addDoctor(form.value).subscribe((result) => {
+            this.toastrService.success('Doctor Registered...!!!', 'Success');
+            form.resetForm();
+            this.route.navigateByUrl('/admin/staff-list');
+            console.log(result);
+          });
+        }
       });
+
       console.log(form);
     }
   }

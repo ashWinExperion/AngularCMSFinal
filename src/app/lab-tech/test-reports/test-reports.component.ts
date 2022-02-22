@@ -35,6 +35,7 @@ export class TestReportsComponent implements OnInit {
     let mailHtmlString="";
     console.log(this.listReportDetails);
     let patinetName=this.listReportDetails[0].firstName;
+    let mail=this.listReportDetails[0].email;
     
     
     mailHtmlString=mailHtmlString+`<br>Dear ${this.listReportDetails[0].firstName},<br>`;
@@ -66,7 +67,7 @@ export class TestReportsComponent implements OnInit {
     mailHtmlString=mailHtmlString+`</table>`
 
 
-    this.generalService.sendMail(mailHtmlString).subscribe(result=>{
+    this.generalService.sendMail(mailHtmlString,mail).subscribe(result=>{
 
     })
     console.log(mailHtmlString);

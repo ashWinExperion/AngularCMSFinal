@@ -12,6 +12,8 @@ import {Patients} from '../../shared/patients';
 })
 export class AddPatientsComponent implements OnInit {
   editPatientId;
+  genderF=false;
+  genderM=false;
   PatinetObj:Patients =new Patients() ;
   constructor(private patientService:PatientsService,
     private router:ActivatedRoute,
@@ -26,20 +28,32 @@ export class AddPatientsComponent implements OnInit {
         let formatedDate=datePipe.transform(result.Date,'yyyy-MM-dd');
         result.Date=formatedDate;
        this.PatinetObj=result;
+       if("Male"==this.PatinetObj.Gender)
+       {
+        this.genderM=true;
+       }
+       else
+       {
+        this.genderF=true;
+       }
+       console.log(this.PatinetObj);
       });
     }
   }
-  onSubmit(addPatient)
+  onSubmit(form)
   {
+    let addPatient=form.value;
     if (this.editPatientId == 0) {
     console.log(addPatient);
     this.patientService.addPatinet(addPatient).subscribe(result=>{
-
+      this.toastrService.success('Patients Registered...!!!', 'Success');
+      form.resetForm();
     })
   }
     else {
       this.patientService.updPatinet(addPatient).subscribe((result) => {
-        this.toastrService.success('Medicien Registered...!!!', 'Success');
+        this.toastrService.success('Patients Updated...!!!', 'Success');
+        form.resetForm();
         //this.route.navigateByUrl("/admin/staff-list");
         console.log(result);
       });

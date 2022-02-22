@@ -65,6 +65,8 @@ import { TreatmentlistComponent } from './admin/treatmentlist/treatmentlist.comp
 import { AddTreatmentsComponent } from './admin/add-treatments/add-treatments.component';
 import { AddPatientsComponent } from './receptionist/add-patients/add-patients.component';
 import { HomeComponent } from './home/home.component';
+import { UserviewComponent } from './admin/staff-list/userview/userview.component';
+
 
 @NgModule({
   declarations: [
@@ -109,7 +111,8 @@ import { HomeComponent } from './home/home.component';
     TreatmentlistComponent,
     AddTreatmentsComponent,
     AddPatientsComponent,
-    HomeComponent
+    HomeComponent,
+    UserviewComponent
 
   ],
   imports: [

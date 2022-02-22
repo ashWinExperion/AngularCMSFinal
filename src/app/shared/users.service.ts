@@ -34,4 +34,10 @@ export class UsersService {
   getUserById(id):Observable<any>{
     return this.httpClient.get("https://localhost:44379/api/users/"+id);
   }
+
+  disableUser(id):Observable<any>
+  {
+    return this.httpClient.delete("https://localhost:44379/api/users/"+id);
+  }
 }
+

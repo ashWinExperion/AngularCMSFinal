@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-body" style="padding-left: 15%;">
+        <div class="d-flex">
+            <img src={{pic}} style="height: 100px;width: 100px;" alt="">
+            <h5>
+                <span class="badge badge-warning mr-2" >#USERID:0{{userObj.UserId}}</span>
+            </h5>  
+             <h4>{{userObj.FirstName + " "+ userObj.LastName}} </h4> 
+             <h5>({{role[userObj.RoleId].toUpperCase()}})</h5>
+        </div>
+        <div>
+            <i class="bi bi-telephone-fill"></i><span>{{userObj.Phone}}</span>
+        </div>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-2">
+                <span>DOB : </span><br>
+                <span>DATE OF Join :</span><br>
+                <span>CITY :</span><br>
+                <span>STATE:</span><br>
+            </div>
+            <div class="col-2">
+                <span>{{userObj.UserDob|date}}</span><br>
+                <span>{{userObj.JoinDate|date}}</span><br>
+                <span>{{userObj.City}}</span><br>
+                <span>{{userObj.State}}</span><br>
+            </div>
+            <div class="col-5"></div>
+        </div>
+    </div>
+</div>

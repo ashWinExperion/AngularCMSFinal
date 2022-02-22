@@ -6,11 +6,31 @@
     width: 100vw;
 }
 .centerCol{
-    padding-top: 15%;
+    padding-top: 2%;
     color: white;
     font-family: 'Rubik', sans-serif;
+    
 }
 
+.logoImg{
+    height: 90px;
+    width: 90px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.navrow{
+    height: 10%;
+     width:100%;
+     background-color:#f8f9fa!important;
+     padding-left: 5%;
+     
+}
+
+.navrow a{
+    text-decoration: none;
+    font-size: 90%;
+}
 nav{
     position: absolute;
     width: 100vw;

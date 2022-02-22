@@ -89,13 +89,20 @@ export class AddAppointComponent implements OnInit {
  
   
   onSubmit(form){
-    delete form.value['PatientName']; 
-    this.appointmentService.addApointments(form.value).subscribe(result=>{
-      this.toastr.success("Appointment Added...!!!","Success");
-      this.route.navigate(["/receptionist/appointment"]);
-      console.log(result);
-      
-    });
+    if(form.value['PatientId']>=0)
+    {
+      delete form.value['PatientName']; 
+      this.appointmentService.addApointments(form.value).subscribe(result=>{
+        this.toastr.success("Appointment Added...!!!","Success");
+        this.route.navigate(["/receptionist/appointment"]);
+        console.log(result);
+        
+      });
+    }
+    else
+    {
+      this.toastr.error("Select A Valid Patient...!!!","Error");
+    }
     console.log(form.value);
   }
 

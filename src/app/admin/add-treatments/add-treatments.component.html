@@ -34,7 +34,7 @@
 
               
 
-                        <button style="float: right;margin-top: 10%;" type="submit"
+                        <button [disabled]="!(SpecializationForm.valid && SpecializationForm.dirty)" style="float: right;margin-top: 10%;" type="submit"
                             class="btn btn-warning">Submit</button>
 
                     </form>

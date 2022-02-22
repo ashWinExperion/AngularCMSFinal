@@ -2,15 +2,17 @@
     <div class="card-body">
         <div class="box">
             <h3>PATIENT REGISTERATION</h3>
-                <form #addPatient="ngForm" (ngSubmit)="onSubmit(addPatient.value)">
+                <form #addPatient="ngForm" (ngSubmit)="onSubmit(addPatient)">
                     <input type="text" class="d-none" #PatientId name="PatientId" [(ngModel)]="PatinetObj.PatientId" >
                     <div class="row">
-                        <div class="col">
+                        <div class="col" style="display: flex;"> 
                             <input [(ngModel)]="PatinetObj.FirstName"  pattern="[a-zA-Z ]*" required #FirstName="ngModel" [ngClass]="{'is-invalid': (FirstName.touched && FirstName.invalid)}"  name="FirstName" class="form-control"  placeholder="First name">
                             <span class="text-danger d-none" style="font-size: smaller;">Error</span>
+
+                            <input [(ngModel)]="PatinetObj.LastName"  pattern="[a-zA-Z ]*" required #LastName="ngModel" [ngClass]="{'is-invalid': (LastName.touched && LastName.invalid)}" name="LastName" class="form-control"  type="text"  placeholder="Last name">
                         </div>
                         <div class="col">
-                            <input [(ngModel)]="PatinetObj.LastName"  pattern="[a-zA-Z ]*" required #LastName="ngModel" [ngClass]="{'is-invalid': (LastName.touched && LastName.invalid)}" name="LastName" class="form-control"  type="text"  placeholder="Last name">
+                            <input [(ngModel)]="PatinetObj.Email"  pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required #Email="ngModel" [ngClass]="{'is-invalid': (Email.touched && Email.invalid)}" name="Email" class="form-control"  type="email"  placeholder="Email">
                         </div>
                     </div>
         
@@ -34,19 +36,22 @@
         
                     <div class="row" style="margin-top: 2%;">
                         <div class="col">
-                            <select  [(ngModel)]="PatinetObj.BloodGroup" type="text" required #BloodGroup="ngModel" [ngClass]="{'is-invalid': (BloodGroup.touched && BloodGroup.invalid)}" name="BloodGroup"  class="form-control">
-                                <option value="0">Blood Group</option>
+                            <select   [(ngModel)]="PatinetObj.BloodGroup" type="text" required #BloodGroup="ngModel" [ngClass]="{'is-invalid': (BloodGroup.touched && BloodGroup.invalid)}" name="BloodGroup"  class="form-control">
+                                <option  value="0">Blood Group</option>
                                 <option value="A">A</option>
+                                <option value="B+">B+</option>
+                                <option value="AB-">AB-</option>
                                 <option value="AB+">AB+</option>
                                 <option value="O+">O+</option>
                                 <option value="O-">O-</option>
                             </select>
                         </div>
+
                         <div class="col">
-                            <label style="margin-right:1%;">Gender </label>
-                            <input type="radio" name="gender" class="" placeholder="First name">
+                            <label style="margin-right:1%;">Gender </label>                           
+                            <input required [(ngModel)]="PatinetObj.Gender" type="radio" name="Gender"  value="Male">
                             <label>Male</label><i class="bi bi-gender-male"></i>
-                            <input type="radio" name="gender" class="" placeholder="Last name">
+                            <input required [(ngModel)]="PatinetObj.Gender" type="radio" name="Gender" value="Female" >
                             <label>Female</label><i class="bi bi-gender-female"></i>
                         </div>
                     </div>

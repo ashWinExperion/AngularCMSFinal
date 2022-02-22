@@ -7,5 +7,7 @@ export class Patients {
     State="";
     PhoneNumber="";
     BloodGroup="";
+    Gender="";
+    Email="";
 }
 
