@@ -11,6 +11,7 @@ import { UsersService } from 'src/app/shared/users.service';
 export class MainBodyComponent implements OnInit {
   @ViewChild('staticTabs', { static: false }) staticTabs?: TabsetComponent;
   userEditObj;
+
   constructor(private usersService:UsersService,
     private router:ActivatedRoute) { }
 

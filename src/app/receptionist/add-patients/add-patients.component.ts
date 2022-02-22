@@ -14,6 +14,7 @@ export class AddPatientsComponent implements OnInit {
   editPatientId;
   genderF=false;
   genderM=false;
+  dateMax=new Date(new Date().setDate(new Date().getDate()-1));
   PatinetObj:Patients =new Patients() ;
   constructor(private patientService:PatientsService,
     private router:ActivatedRoute,

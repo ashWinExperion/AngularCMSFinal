@@ -16,6 +16,7 @@ import { UsersService } from 'src/app/shared/users.service';
 export class DoctorRegComponent implements OnInit {
   listSpecialization;
   editUserId;
+  dateMax=new Date(new Date().setDate(new Date().getDate()-365*20));
   today = new Date();
   dateIsGreater = false;
   constructor(

@@ -20,7 +20,7 @@
 
     <div class="row" style="margin-top: 2%;">
         <div class="col">
-            <input #DateOfBirth="ngModel" [(ngModel)]="userEditObj.UserDob"
+            <input #DateOfBirth="ngModel"  max="{{dateMax | date:'yyyy-MM-dd'}}"  [(ngModel)]="userEditObj.UserDob"
                 [ngClass]="{'is-invalid': DateOfBirth.touched && dateIsGreater}"
                 (change)="OnDateChange(DateOfBirth.value)" required type="date" name="UserDob" id='docDOB'
                 class="form-control" placeholder="DOB">

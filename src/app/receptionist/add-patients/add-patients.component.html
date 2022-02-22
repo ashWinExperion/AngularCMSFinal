@@ -18,10 +18,10 @@
         
                     <div class="row" style="margin-top: 2%;">
                         <div class="col">
-                            <input #Date="ngModel" [(ngModel)]="PatinetObj.Date" type="date" class="form-control" required  [ngClass]="{'is-invalid': (Date.touched && Date.invalid)}" name="Date"   placeholder="DOB">
+                            <input #Date="ngModel" max="{{dateMax | date:'yyyy-MM-dd'}}" [(ngModel)]="PatinetObj.Date" type="date" class="form-control" required  [ngClass]="{'is-invalid': (Date.touched && Date.invalid)}" name="Date"   placeholder="DOB">
                         </div>
                         <div class="col">
-                            <input  [(ngModel)]="PatinetObj.PhoneNumber"  pattern="[0-9]*" type="text" class="form-control" required #PhoneNumber="ngModel" [ngClass]="{'is-invalid': (PhoneNumber.touched && PhoneNumber.invalid)}" name="PhoneNumber" placeholder="Phone">
+                            <input  [(ngModel)]="PatinetObj.PhoneNumber"  pattern="[0-9]*" type="number" minlength="10" maxlength="10" class="form-control" required #PhoneNumber="ngModel" [ngClass]="{'is-invalid': (PhoneNumber.touched && PhoneNumber.invalid)}" name="PhoneNumber" placeholder="Phone">
                         </div>
                     </div>
         

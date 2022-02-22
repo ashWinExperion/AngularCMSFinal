@@ -15,7 +15,7 @@
                                 <div class="col">
                                    
                                     <input #PatientName name="PatientName" [(ngModel)]="selectedValue" required
-                                    placeholder="Search Patinet"
+                                    placeholder="Search Patient"
                                         [typeahead]="listOfPatients"
                                         typeaheadOptionField="FirstName"
                                         (typeaheadOnSelect)="onSelect($event)"

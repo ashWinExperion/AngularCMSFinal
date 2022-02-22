@@ -66,7 +66,7 @@ children:[
   {path:"receptionist",component:ReceptionistComponent,canActivate:[AuthGuard],data:{role:'3'},
   children:[
     {path:"appointment",component:AppointReceComponent},
-   {path:"add-appointment",component:AddAppointComponent},
+   {path:"add-appointment/:Id",component:AddAppointComponent},
    {path:"patients-list",component:PatientsAppointComponent},
    {path:"bill/:Id",component:BillComponent},
    {path:"add-patient/:Id",component:AddPatientsComponent}

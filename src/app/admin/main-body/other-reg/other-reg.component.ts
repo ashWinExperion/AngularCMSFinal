@@ -16,7 +16,7 @@ import { UsersService } from 'src/app/shared/users.service';
 })
 export class OtherRegComponent implements OnInit {
   dateIsGreater = false;
-
+  dateMax=new Date(new Date().setDate(new Date().getDate()-365*20));
   constructor(
     private userService: UsersService,
     private router: ActivatedRoute,

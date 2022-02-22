@@ -21,7 +21,7 @@
 
     <div class="row" style="margin-top: 2%;">
         <div class="col">
-            <input autocomplete="false"  #DateOfBirth="ngModel" (change)="OnDateChange(DateOfBirth.value)" [ngClass]="{'is-invalid': DateOfBirth.touched && dateIsGreater}"  [(ngModel)]="this.doctorSrvice.doctorRegFormData.UserDob" type="date" name="UserDob" id='docDOB'
+            <input autocomplete="false"  max="{{dateMax | date:'yyyy-MM-dd'}}"  #DateOfBirth="ngModel" (change)="OnDateChange(DateOfBirth.value)" [ngClass]="{'is-invalid': DateOfBirth.touched && dateIsGreater}"  [(ngModel)]="this.doctorSrvice.doctorRegFormData.UserDob" type="date" name="UserDob" id='docDOB'
                 class="form-control" placeholder="DOB">
         </div>
         <div class="col">
