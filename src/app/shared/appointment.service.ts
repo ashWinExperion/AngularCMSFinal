@@ -13,6 +13,9 @@ export class AppointmentService {
     return this.httpClient.get("https://localhost:44379/api/appointments/doctors/"+id);
   }
 
+  getAppById(id):Observable<any>{
+    return this.httpClient.get("https://localhost:44379/api/appointments/details/"+id);
+  }
 
   getAllApointments():Observable<any>{
     return this.httpClient.get("https://localhost:44379/api/appointments");

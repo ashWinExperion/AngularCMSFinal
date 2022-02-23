@@ -27,6 +27,19 @@ export class StaffListComponent implements OnInit {
     )
   }
 
+  onDel(id)
+  {
+    console.log(id);
+    this.usersService.disableUser(id).subscribe(result=>{
+      console.log("Deleted");
+      this.ngOnInit();
+    });
+  }
+
+  onView(id){
+    this.router.navigate(["admin/user-view",id])
+  }
+
   onEdit(id){
 
     this.router.navigate(["admin/staff-reg",id])

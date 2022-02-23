@@ -1,6 +1,8 @@
 <!-- <h3 id='doctorHeader' class="">DOCTOR REGISTERATION</h3> -->
 <h3 id='othersHeader' class="">OTHERS REGISTERATION</h3>
-<form #docRegForm="ngForm" autocomplete="off" (ngSubmit)="onSubmit(docRegForm)">
+<form #otherRegForm="ngForm" autocomplete="off" (ngSubmit)="onSubmit(otherRegForm)">
+    <input #Status="ngModel" [(ngModel)]="userEditObj.Status" type="text" name="Status" id='status'
+    class="d-none" >
     <input [(ngModel)]="userEditObj.UserId" ngModel type="text" name="UserId" id='UserId' class="d-none"
         placeholder="First name">
     <div class="row">
@@ -18,7 +20,7 @@
 
     <div class="row" style="margin-top: 2%;">
         <div class="col">
-            <input #DateOfBirth="ngModel" [(ngModel)]="userEditObj.UserDob"
+            <input #DateOfBirth="ngModel"  max="{{dateMax | date:'yyyy-MM-dd'}}"  [(ngModel)]="userEditObj.UserDob"
                 [ngClass]="{'is-invalid': DateOfBirth.touched && dateIsGreater}"
                 (change)="OnDateChange(DateOfBirth.value)" required type="date" name="UserDob" id='docDOB'
                 class="form-control" placeholder="DOB">
@@ -26,22 +28,22 @@
         <div class="col">
             <input #Phone="ngModel" pattern="[0-9 ]*" required
                 [ngClass]="{'is-invalid': Phone.touched && Phone.invalid }" [(ngModel)]="userEditObj.Phone" type="text"
-                name="Phone" id='phone' class="form-control" placeholder="Phone">
+                name="Phone" id='phone' minlength="10" maxlength="10"  class="form-control" placeholder="Phone">
         </div>
     </div>
 
     <div class="row" style="margin-top: 2%;">
         <div class="col" style="display: flex;">
-            <input #City="ngModel" pattern="[a-zA-Z ]*" [ngClass]="{'is-invalid': City.touched && City.invalid }"
+            <input required #City="ngModel" pattern="[a-zA-Z ]*" [ngClass]="{'is-invalid': City.touched && City.invalid }"
                 [(ngModel)]="userEditObj.City" type="text" name="City" class="form-control" placeholder="City">
-            <input #State="ngModel" pattern="[a-zA-Z ]*" [ngClass]="{'is-invalid': State.touched && State.invalid }"
+            <input required #State="ngModel" pattern="[a-zA-Z ]*" [ngClass]="{'is-invalid': State.touched && State.invalid }"
                 [(ngModel)]="userEditObj.State" type="text" name="State" class="form-control" placeholder="State">
         </div>
         <div class="col" style="display: flex;">
-            <input #UserName="ngModel" [ngClass]="{'is-invalid': UserName.touched && UserName.invalid }"
-                [(ngModel)]="userEditObj.UserName" type="text" name="UserName" class="form-control"
+            <input required #UserName="ngModel" [ngClass]="{'is-invalid': UserName.touched && UserName.invalid }"
+                [(ngModel)]="userEditObj.UserName" minlength="5"  type="text" name="UserName" class="form-control"
                 placeholder="Username">
-            <input #Password="ngModel" [ngClass]="{'is-invalid': Password.touched && Password.invalid }"
+            <input required #Password="ngModel" [ngClass]="{'is-invalid': Password.touched && Password.invalid }"
                 [(ngModel)]="userEditObj.Password" type="text" name="Password" class="form-control"
                 placeholder="Password">
         </div>
@@ -50,7 +52,7 @@
     <div class="row" style="margin-top: 2%;">
         <div class="col">
 
-            <select #Role="ngModel"
+            <select required #Role="ngModel"
                 [ngClass]="{'is-invalid': (Role.touched && Role.invalid) ||( Role.touched && Role.value==0)}"
                 [ngClass]="{'is-invalid': Role.touched && Role.invalid }" [(ngModel)]="userEditObj.RoleId"
                 class="form-control" name="RoleId" id='StaffRoles'>
@@ -61,17 +63,15 @@
         <div class="col" style="display: flex;">
             <label style="margin-right:1%;">Gender </label>
             <div style="padding-left: 5%;">
-                <input ngModel type="radio" name="Gender" value="Male" [checked]="userEditObj.Gender == 'Male'" class=""
-                    placeholder="First name">
+                <input required [(ngModel)]="userEditObj.Gender"  type="radio" name="Gender" value="Male">
                 <label>Male</label><i class="bi bi-gender-male"></i>
             </div>
             <div style="padding-left: 5%;">
-                <input ngModel type="radio" name="Gender" value="Female" [checked]="userEditObj.Gender == 'Female'"
-                    class="" placeholder="Last name">
+                <input required [(ngModel)]="userEditObj.Gender"  type="radio" name="Gender" value="Female">
                 <label>Female</label><i class="bi bi-gender-female"></i>
             </div>
         </div>
     </div>
-    <button style="float: right;margin-top: 10%;" type="submit" class="btn btn-warning">Submit</button>
+    <button [disabled]="!(otherRegForm.valid && otherRegForm.dirty)"  style="float: right;margin-top: 10%;" type="submit" class="btn btn-warning">Submit</button>
 
 </form>

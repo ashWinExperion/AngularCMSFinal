@@ -13,13 +13,16 @@
                             <div class="col">
                                 <input type="text"  [(ngModel)]="'Token No : ' + this.appointmentService.nextToken" disabled  name="token" class="form-control" placeholder="Tokken No."></div>
                                 <div class="col">
-                                    <input name="PatientName" [(ngModel)]="selectedValue"
-                                    placeholder="Search Patinet"
+                                   
+                                    <input #PatientName name="PatientName" [(ngModel)]="selectedValue" required
+                                    placeholder="Search Patient"
                                         [typeahead]="listOfPatients"
                                         typeaheadOptionField="FirstName"
                                         (typeaheadOnSelect)="onSelect($event)"
                                         (typeaheadOnPreview)="onPreview($event)"
                                         class="form-control">
+                                        {{PatientName.touched}}
+                                        {{PatientName.invalid}}
                                         <input type="text" [(ngModel)]="selectPatinetId" name="PatientId" class="d-none">
                                         <input type="text" [(ngModel)]="receptionistIdLogedUser" name="ReceptionId" class="d-none">
                                         <input type="text" [(ngModel)]="editAppointID.AppointmentId" name="AppointmentId"  class="d-none">

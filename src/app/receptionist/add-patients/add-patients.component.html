@@ -1,0 +1,65 @@
+<div class="card">
+    <div class="card-body">
+        <div class="box">
+            <h3>PATIENT REGISTERATION</h3>
+                <form #addPatient="ngForm" (ngSubmit)="onSubmit(addPatient)">
+                    <input type="text" class="d-none" #PatientId name="PatientId" [(ngModel)]="PatinetObj.PatientId" >
+                    <div class="row">
+                        <div class="col" style="display: flex;"> 
+                            <input [(ngModel)]="PatinetObj.FirstName"  pattern="[a-zA-Z ]*" required #FirstName="ngModel" [ngClass]="{'is-invalid': (FirstName.touched && FirstName.invalid)}"  name="FirstName" class="form-control"  placeholder="First name">
+                            <span class="text-danger d-none" style="font-size: smaller;">Error</span>
+
+                            <input [(ngModel)]="PatinetObj.LastName"  pattern="[a-zA-Z ]*" required #LastName="ngModel" [ngClass]="{'is-invalid': (LastName.touched && LastName.invalid)}" name="LastName" class="form-control"  type="text"  placeholder="Last name">
+                        </div>
+                        <div class="col">
+                            <input [(ngModel)]="PatinetObj.Email"  pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required #Email="ngModel" [ngClass]="{'is-invalid': (Email.touched && Email.invalid)}" name="Email" class="form-control"  type="email"  placeholder="Email">
+                        </div>
+                    </div>
+        
+                    <div class="row" style="margin-top: 2%;">
+                        <div class="col">
+                            <input #Date="ngModel" max="{{dateMax | date:'yyyy-MM-dd'}}" [(ngModel)]="PatinetObj.Date" type="date" class="form-control" required  [ngClass]="{'is-invalid': (Date.touched && Date.invalid)}" name="Date"   placeholder="DOB">
+                        </div>
+                        <div class="col">
+                            <input  [(ngModel)]="PatinetObj.PhoneNumber"  pattern="[0-9]*" type="number" minlength="10" maxlength="10" class="form-control" required #PhoneNumber="ngModel" [ngClass]="{'is-invalid': (PhoneNumber.touched && PhoneNumber.invalid)}" name="PhoneNumber" placeholder="Phone">
+                        </div>
+                    </div>
+        
+                    <div class="row" style="margin-top: 2%;">
+                        <div class="col">
+                            <input  [(ngModel)]="PatinetObj.City"  pattern="[a-zA-Z ]*" type="text" required #City="ngModel" [ngClass]="{'is-invalid': (City.touched && City.invalid)}" name="City" type="text" class="form-control" placeholder="City">
+                        </div>
+                        <div class="col">
+                            <input [(ngModel)]="PatinetObj.State"  pattern="[a-zA-Z ]*" type="text" required #State="ngModel" [ngClass]="{'is-invalid': (State.touched && State.invalid)}" name="State" type="text" class="form-control" placeholder="State">
+                        </div>
+                    </div>
+        
+                    <div class="row" style="margin-top: 2%;">
+                        <div class="col">
+                            <select   [(ngModel)]="PatinetObj.BloodGroup" type="text" required #BloodGroup="ngModel" [ngClass]="{'is-invalid': (BloodGroup.touched && BloodGroup.invalid)}" name="BloodGroup"  class="form-control">
+                                <option  value="0">Blood Group</option>
+                                <option value="A">A</option>
+                                <option value="B+">B+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label style="margin-right:1%;">Gender </label>                           
+                            <input required [(ngModel)]="PatinetObj.Gender" type="radio" name="Gender"  value="Male">
+                            <label>Male</label><i class="bi bi-gender-male"></i>
+                            <input required [(ngModel)]="PatinetObj.Gender" type="radio" name="Gender" value="Female" >
+                            <label>Female</label><i class="bi bi-gender-female"></i>
+                        </div>
+                    </div>
+                    <button style="float: right;margin-top: 10%;" type="submit"
+                        class="btn btn-warning">Submit</button>
+                </form>
+        
+        </div>
+    </div>
+</div>
+

@@ -15,7 +15,7 @@
                             placeholder="Medicine Name">
                     </div>
                     <div class="col">
-                        <input type="text" [(ngModel)]="medicineObj.Price" name="Price" id='medPrice'  class="form-control"
+                        <input #MedPrice="ngModel" type="number" [(ngModel)]="medicineObj.Price" [ngClass]="{'is-invalid': (MedPrice.touched && MedPrice.invalid) ||( MedPrice.touched && MedPrice.value<0)}"  name="Price" id='medPrice'  class="form-control"
                             placeholder="Price">
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                 <div class="row" style="margin-top: 2%;">
                    
                     <div class="col-6">
-                        <input type="number" [(ngModel)]="medicineObj.Stock" name="Stock" id='Stock' class="form-control"
+                        <input #Stock="ngModel"  [ngClass]="{'is-invalid': (Stock.touched && Stock.invalid) ||( Stock.touched && Stock.value<0)}" type="number" [(ngModel)]="medicineObj.Stock" name="Stock" id='Stock' class="form-control"
                             placeholder="Stock">
                     </div>
                 </div>

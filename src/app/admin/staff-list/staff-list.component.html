@@ -22,9 +22,9 @@
                 </div>
                 <div class="col-4" style="padding-left: 15%;">
              
-                        <a class="icons" (click)="consult(item.appointmentId)" > <i class="bi bi-eye-fill"></i></a>
+                        <a class="icons" (click)="onView(item.UserId)" > <i class="bi bi-eye-fill"></i></a>
                         <a class="icons" (click)="onEdit(item.UserId)" ><i class="bi bi-pencil-square text-success"></i></a>
-                        <a class="icons"><i class="bi bi-trash-fill text-danger"></i></a>    
+                        <a class="icons" (click)="onDel(item.UserId)" ><i class="bi bi-trash-fill text-danger"></i></a>    
                 </div>
             </div>
           </div>

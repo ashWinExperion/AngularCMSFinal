@@ -23,6 +23,13 @@ export class TestListComponent implements OnInit {
     )
   }
 
+  disable(item)
+  {
+    this.testService.disableTest(item).subscribe(result=>{
+      console.log("Delete");
+      this.ngOnInit();
+    })
+  }
 
   addEdit(item){
     this.route.navigate(["/admin/add-test",item]);
